@@ -2,20 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://example.com/about/</loc>
+    <loc>https://www.francescoedaniela.site/about/</loc>
     <lastmod>2022-02-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.com/</loc>
+    <loc>https://www.francescoedaniela.site/</loc>
     <lastmod>2022-02-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/1/</loc>
+    <loc>https://www.francescoedaniela.site/posts/1/</loc>
     <lastmod>2022-02-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.com/posts/</loc>
+    <loc>https://www.francescoedaniela.site/posts/</loc>
     <lastmod>2022-02-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://example.com/categories/</loc>
+    <loc>https://www.francescoedaniela.site/categories/</loc>
   </url><url>
-    <loc>https://example.com/tags/</loc>
+    <loc>https://www.francescoedaniela.site/tags/</loc>
   </url>
 </urlset>
