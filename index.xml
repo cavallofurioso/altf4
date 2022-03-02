@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Alt_F4</title>
+    <link>https://www.altf4.space/</link>
+    <description>Recent content on Alt_F4</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© Athul</copyright>
+    <lastBuildDate>Sat, 12 Feb 2022 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.altf4.space/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>VMware VCP-NV 2022 Certified</title>
+      <link>https://www.altf4.space/posts/3/</link>
+      <pubDate>Mon, 28 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.altf4.space/posts/3/</guid>
+      <description>.center {text-align:center;}Finally I got the VMware VCP-NV 2022 Certification, taking the exam 2V0-41.20.
+I came from 5+ years experience in virtualization area, working with VMware, Proxmox and so on.
+Experience on vSphere environments is not a plus, but a mandatory requirement: a lot of questions cover topics not only related to NSX-T but also to vSphere (ESXi, vCenter, etc.</description>
+    </item>
+    
+    <item>
+      <title>Death is nothing at all</title>
+      <link>https://www.altf4.space/posts/2/</link>
+      <pubDate>Tue, 15 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.altf4.space/posts/2/</guid>
+      <description>Death is nothing at all. It does not count.
+I have only slipped away into the next room.
+Nothing has happened.
+Everything remains exactly as it was.
+I am I, and you are you, and the old life that we lived so fondly together is untouched, unchanged.
+Whatever we were to each other, that we are still.
+Call me by the old familiar name.
+Speak of me in the easy way which you always used.</description>
+    </item>
+    
+    <item>
+      <title>About </title>
+      <link>https://www.altf4.space/about/</link>
+      <pubDate>Sat, 12 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.altf4.space/about/</guid>
+      <description>Francesco Racano  Telecommunication Engineer  NFV Engineer 7+ years experience working for Capgemini Engineering vSphere 7 (ESXi, vCenter, vCloud, NSX-T, vROPs)   Technology Geek  currently on W11 with WSL2  coming from Debian XFCE years     Trekking Lover Sport Enthusiast  Awards and Certifications:  VMware Certified Professional – Network Virtualization 2022 (VCP-NV) AWS Certified Cloud Practitioner VMware Certified Professional - Data Center Virtualization 2021 (VCP-DCV) Essential and Advanced Developer Certification Autopsy Digital Forensics Certification CCNA Master’s Degree - Telecommunication Engineering - Politecnico di Bari Degree - Telecommunication Engineering - Politecnico di Bari  </description>
+    </item>
+    
+    <item>
+      <title>Here we go</title>
+      <link>https://www.altf4.space/posts/1/</link>
+      <pubDate>Sat, 12 Feb 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.altf4.space/posts/1/</guid>
+      <description>Like closing a window, insert a space and starting again and again. A new start, fresh air. A soul has leaved us…I want to celebrate this with a new opened window.
+altf4.space will be used to go indeep on everything related to technology, life hacks, thoughts, trekking, sports, nutritions and so on. So everything that sparke me a brain movements and life happiness.</description>
+    </item>
+    
+  </channel>
+</rss>
