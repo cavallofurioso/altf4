@@ -6,11 +6,19 @@
     <description>Recent content in Posts on Alt_F4</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>© Athul</copyright>
-    <lastBuildDate>Mon, 28 Feb 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 06 Mar 2022 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://www.altf4.space/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>VCP-NV 2022 Study Guide - Ep.1 - Intro and Architecture</title>
+      <link>https://www.altf4.space/posts/4/</link>
+      <pubDate>Sun, 06 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.altf4.space/posts/4/</guid>
+      <description>What the hell is NSX-T?!?</description>
+    </item>
     
     <item>
       <title>VMware VCP-NV 2022 Certified</title>
@@ -18,9 +26,7 @@
       <pubDate>Mon, 28 Feb 2022 00:00:00 +0000</pubDate>
       
       <guid>https://www.altf4.space/posts/3/</guid>
-      <description>.center {text-align:center;}Finally I got the VMware VCP-NV 2022 Certification, taking the exam 2V0-41.20.
-I came from 5+ years experience in virtualization area, working with VMware, Proxmox and so on.
-Experience on vSphere environments is not a plus, but a mandatory requirement: a lot of questions cover topics not only related to NSX-T but also to vSphere (ESXi, vCenter, etc.</description>
+      <description>Another achievement in my own list</description>
     </item>
     
     <item>
@@ -29,14 +35,7 @@ Experience on vSphere environments is not a plus, but a mandatory requirement: a
       <pubDate>Tue, 15 Feb 2022 00:00:00 +0000</pubDate>
       
       <guid>https://www.altf4.space/posts/2/</guid>
-      <description>Death is nothing at all. It does not count.
-I have only slipped away into the next room.
-Nothing has happened.
-Everything remains exactly as it was.
-I am I, and you are you, and the old life that we lived so fondly together is untouched, unchanged.
-Whatever we were to each other, that we are still.
-Call me by the old familiar name.
-Speak of me in the easy way which you always used.</description>
+      <description>A text in honor of&amp;hellip;</description>
     </item>
     
     <item>
@@ -45,8 +44,7 @@ Speak of me in the easy way which you always used.</description>
       <pubDate>Sat, 12 Feb 2022 00:00:00 +0000</pubDate>
       
       <guid>https://www.altf4.space/posts/1/</guid>
-      <description>Like closing a window, insert a space and starting again and again. A new start, fresh air. A soul has leaved us…I want to celebrate this with a new opened window.
-altf4.space will be used to go indeep on everything related to technology, life hacks, thoughts, trekking, sports, nutritions and so on. So everything that sparke me a brain movements and life happiness.</description>
+      <description>Let&amp;rsquo;s start</description>
     </item>
     
   </channel>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>NSX-T on Alt_F4</title>
+    <link>https://www.altf4.space/tags/nsx-t/</link>
+    <description>Recent content in NSX-T on Alt_F4</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 06 Mar 2022 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://www.altf4.space/tags/nsx-t/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>VCP-NV 2022 Study Guide - Ep.1 - Intro and Architecture</title>
+      <link>https://www.altf4.space/posts/4/</link>
+      <pubDate>Sun, 06 Mar 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.altf4.space/posts/4/</guid>
+      <description>What the hell is NSX-T?!?</description>
+    </item>
+    
+  </channel>
+</rss>

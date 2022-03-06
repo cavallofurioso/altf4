@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html><head>
+	<meta name="google-site-verification" content="a660g_SgI9qGFjSabNGHMuY1gPEMc44t1okRRp59gRM" />
+
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>VCP-NV 2022 Study Guide - Ep.1 - Intro and Architecture - Alt_F4</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="What the hell is NSX-T?!?" />
+	<meta property="og:image" content=""/>
+	<meta property="og:title" content="VCP-NV 2022 Study Guide - Ep.1 - Intro and Architecture" />
+<meta property="og:description" content="What the hell is NSX-T?!?" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.altf4.space/posts/4/" />
+<meta property="article:published_time" content="2022-03-06T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-03-06T00:00:00+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="VCP-NV 2022 Study Guide - Ep.1 - Intro and Architecture"/>
+<meta name="twitter:description" content="What the hell is NSX-T?!?"/>
+<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@1,500&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="https://www.altf4.space/css/main.2f9b5946627215dc1ae7fa5f82bfc9cfcab000329136befeea5733f21e77d68f.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://www.altf4.space/css/dark.eade6946e6cd96c385cb2c987e0811e6ae4538dc87af8c3178608f6dbaef354c.css"  disabled />
+	
+	
+	
+</head>
+<body>
+        <div class="content"><header>
+	<div class="main">
+		<a href="https://www.altf4.space">Alt_F4</a>
+	</div>
+	<nav>
+		
+		<a href="/">Home</a>
+		
+		<a href="/posts">Blog</a>
+		
+		<a href="/tags">Tags</a>
+		
+		<a href="/about">About</a>
+		
+		| <a id="dark-mode-toggle" onclick="toggleTheme()" href=""></a>
+		<script src="https://www.altf4.space/js/themetoggle.js"></script>
+		
+	</nav>
+</header>
+
+<main>
+	<article>
+		<div class="title">
+			<h1 class="title">VCP-NV 2022 Study Guide - Ep.1 - Intro and Architecture</h1>
+			<div class="meta">Posted on Mar 6, 2022</div>
+		</div>
+		
+
+		<section class="body">
+			<p><em>First episode with NSX-T 2V0-41.20 Exam Guide!</em></p>
+<p>I hope that notes\study guide can help lot of people to be ready for the exam and also go indeep on some topics that course never covered in this way.<br>
+My study way it to bring notes and organize them in a hierchical way: fewer words will be used, in order to help me to organized and also study them.</p>
+<pre><code>This notes are not intended to replace official courses and books
+</code></pre>
+<h2 id="introduction">Introduction</h2>
+<p><br>
+<strong>NSX-T 3.0</strong></p>
+<ul>
+<li>full stack Layer 2 to Layer 7 networking platform that offers virtual networking, security, load balancing, visibility, and analytics in a single platform</li>
+<li>With NSX-T 3.0, admins can now deploy NSX-T directly on VMware vSphere Distributed Switch 7.0</li>
+<li>Versioning
+<ul>
+<li>NSX-V
+<ul>
+<li>Require a NSX manager instance for every vcenter (maintenance can be complicated)</li>
+<li>No GUI, just a plugin integrated in vcenter</li>
+</ul>
+</li>
+<li>NSX-T
+<ul>
+<li>Implement agile infrastructure</li>
+<li>Many vcenter can be register to 1 NSX manager</li>
+<li>Dedicated GUI</li>
+<li>It works without vcenter</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><br>
+<strong>NSX Portfolio</strong></p>
+<ul>
+<li>NSX Data Center</li>
+<li>NSX Cloud extends the data center network into the public cloud (VMware Cloud on AWS or Microsoft Azure Cloud)</li>
+<li>NSX Intelligence is a distributed analytics solution that provides visibility and dynamic security policy enforcement for NSX-T Data Center environments</li>
+<li>NSX Distributed IDS/IPS</li>
+<li>NSX Advanced Load Balancer</li>
+<li>NSX Service Mesh enables discovery and secure communication of microservices in a heterogeneous infrastructure</li>
+<li>VMware HCX delivers application and network hybridity and mobility</li>
+</ul>
+<p><br>
+<strong>Virtual Cloud Network</strong></p>
+<ul>
+<li>VMware Framework</li>
+<li>Software layer</li>
+</ul>
+<p><br>
+<strong>NSX-T Data Center</strong></p>
+<ul>
+<li>It&rsquo;s part of Virtual Cloud Network</li>
+<li>Security, Multi-cloud networking, automation, Cloud-Native Application</li>
+</ul>
+<h2 id="architecture">Architecture</h2>
+<p><br>
+<strong>Deployment info</strong></p>
+<ul>
+<li>Type
+<ul>
+<li>Small &ndash;&gt; up to     (small use cases like lab)</li>
+<li>Medium &ndash;&gt; &lt;= 64 host or few (production use cases)</li>
+<li>Large &ndash;&gt; &gt;64 host (production use cases)</li>
+</ul>
+</li>
+<li>Deploy additional NSX manager can be done in an automated way via NSX Manager UI only if we are working in vSphere (no KVM)</li>
+</ul>
+<p><br>
+<strong>Registering info</strong></p>
+<ul>
+<li><!-- raw HTML omitted -->1 NSX Manager can be connected up to 16 vCenter Server<!-- raw HTML omitted -->
+<ul>
+<li>Enable Trust
+<ul>
+<li>Available from vCenter 7.0</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><br>
+<strong>Certificate</strong></p>
+<ul>
+<li>In order to replace default self-signed certificate with a signed-Ca  certificate
+<ul>
+<li><em>NSX Manager UI - System-certificate - Import</em></li>
+</ul>
+</li>
+</ul>
+<p><img src="/images/vsphere.png" alt="vSphere Implementation Architecture">
+<img src="/images/kvm.png" alt="KVM Implementation Architecture"></p>
+
+		</section>
+
+		<div class="post-tags">
+			
+			
+			
+		</div>
+	</article>
+</main>
+<footer>
+<hr><a class="soc" href="mailto://f.racano8@live.com" title="Mail"><i data-feather="mail"></i></a>|<a class="soc" href="https://www.linkedin.com/in/francescoracano/" title="Linkedin"><i data-feather="linkedin"></i></a>|<a class="soc"><img src="https://visitor-badge.glitch.me/badge?page_id=https%3a%2f%2fwww.altf4.space%2fposts%2f4%2f"/></a>
+</footer>
+
+
+<script>
+      feather.replace()
+</script></div>
+    </body>
+</html>
