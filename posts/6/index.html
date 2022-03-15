@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html><head>
+	<meta name="google-site-verification" content="a660g_SgI9qGFjSabNGHMuY1gPEMc44t1okRRp59gRM" />
+
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>VCP-NV 2022 Study Guide - Ep.2 - NSX-T Architecture - Alt_F4</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Management, Control e Data Plane" />
+	<meta property="og:image" content=""/>
+	<meta property="og:title" content="VCP-NV 2022 Study Guide - Ep.2 - NSX-T Architecture" />
+<meta property="og:description" content="Management, Control e Data Plane" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.altf4.space/posts/6/" />
+<meta property="article:published_time" content="2022-03-15T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-03-15T00:00:00+00:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="VCP-NV 2022 Study Guide - Ep.2 - NSX-T Architecture"/>
+<meta name="twitter:description" content="Management, Control e Data Plane"/>
+<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@1,500&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="https://www.altf4.space/css/main.04665087ed99595f612ab38717920e598809930ff391f79020ab592da9fe2166.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://www.altf4.space/css/dark.eade6946e6cd96c385cb2c987e0811e6ae4538dc87af8c3178608f6dbaef354c.css"  disabled />
+	
+	
+	
+</head>
+<body>
+        <div class="content"><header>
+	<div class="main">
+		<a href="https://www.altf4.space">Alt_F4</a>
+	</div>
+	<nav>
+		
+		<a href="/">Home</a>
+		
+		<a href="/posts">Blog</a>
+		
+		<a href="/tags">Tags</a>
+		
+		<a href="/about">About</a>
+		
+		| <a id="dark-mode-toggle" onclick="toggleTheme()" href=""></a>
+		<script src="https://www.altf4.space/js/themetoggle.js"></script>
+		
+	</nav>
+</header>
+
+<main>
+	<article>
+		<div class="title">
+			<h1 class="title">VCP-NV 2022 Study Guide - Ep.2 - NSX-T Architecture</h1>
+			<div class="meta">Posted on Mar 15, 2022</div>
+		</div>
+		
+
+		<section class="body">
+			<p><em>2th episode with NSX-T 2V0-41.20 Exam Guide!</em></p>
+<p>I hope that notes\study guide can help lot of people to be ready for the exam and also go indeep on some topics that course never covered in this way.<br>
+My study way it to bring notes and organize them in a hierchical way: fewer words will be used, in order to help me to organized and also study them.</p>
+<pre><code>This notes are not intended to replace official courses and books
+</code></pre>
+<hr>
+<h2 id="architecture">Architecture</h2>
+ <img src="/images/arch.png"> 
+
+
+<ul>
+<li>NSX-T works using 3 layer Planes
+<ul>
+<li>Management</li>
+<li>Control</li>
+<li>Data</li>
+</ul>
+</li>
+</ul>
+<h2 id="management-plane">Management Plane</h2>
+<ul>
+<li>It is responsible for maintaining user configuration, handling user queries,  and  forming operational tasks on all management, control, and data plane nodes</li>
+<li>Mgmt and Control plane reside on the management cluster</li>
+<li>3 VM for NSX Manager Appliance &ndash;&gt; only 1 is active on management plane!</li>
+<li>Management Plane Agent (mpa)
+<ul>
+<li>It resides on Data Plane components and transport nodes in order to connect them to the NSX-T Manager</li>
+</ul>
+</li>
+</ul>
+<p><strong>Components Type</strong>:</p>
+<ul>
+<li>Hypervisor transport nodes
+<ul>
+<li>ESXi host, KVM host</li>
+<li>Forwaridng plane for vm traffic</li>
+</ul>
+</li>
+<li>Bare.metal transport nodes
+<ul>
+<li>RHEL, CentOS, Ubuntu, Windows</li>
+</ul>
+</li>
+<li>NSX Edge Cluster
+<ul>
+<li>Edge transport node belongs to that cluster</li>
+<li>It provides gateway services</li>
+</ul>
+</li>
+</ul>
+<p><strong>NSX Manager Appliance</strong></p>
+<ul>
+<li>provides the (GUI) and the REST APIs for creating, configuring, and monitoring NSX-T Data Center components</li>
+<li>How many VMs?
+<ul>
+<li>Prior to 2.4
+<ul>
+<li>There was 1 NSX manager appliance + 3 NSX controller (so 4 VMs)</li>
+</ul>
+</li>
+<li>From 2.4 &ndash;&gt; at now
+<ul>
+<li>NSX Manager, NSX Policy Manager, NSX Controller elements &ndash;&gt; belongs to a unique VM!</li>
+</ul>
+</li>
+<li>Three unique NSX appliance VMs are required for cluster availability, scaling out and for redundancy</li>
+<li>NSX-T manager stores all of its information in an in-memory database immediately which is synchronized across the cluster and written to disk</li>
+<li>Every VMs has a unique IP, but optionally 3 VMs can be configured to maintain a unique virtual IP address</li>
+<li>NSX Manager Cluster Configuration
+<ul>
+<li>Cluster VIP
+<ul>
+<li>All NSX manager nodes must be on the same subnet</li>
+<li>Traffic is not balanced between nodes while using VIP</li>
+<li>One node is elected as leader, to which VIP is attached</li>
+<li>&ldquo;get interfaces&rdquo; command on nsx appliance give IP details
+<ul>
+<li>the VM appliance that has been elected as leader will have 2 IP, 1 related to the appliance, 1 to VIP</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>VIP and LoadBalancer (with an NSX LB  or external LB)
+<ul>
+<li>VIP is attached to LB</li>
+<li>Traffic is balanced between nodes</li>
+<li>NSX manager nodes can be on different subnet</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Every NSX Manager has 3 roles:
+<ul>
+<li><strong>NSX Policy role</strong>
+<ul>
+<li>Point of entry when a change is required</li>
+<li>Security and networking config across the environment</li>
+<li>Deployment in every NSX Manager node</li>
+<li>Mapping role:node 1:1</li>
+<li>Define things but is &ldquo;infrastructure-agnostic&rdquo;</li>
+</ul>
+</li>
+<li><strong>NSX Manager role</strong>
+<ul>
+<li>Receive config from policy role and validate the config</li>
+<li>Reverse proxy
+<ul>
+<li>Entry point to NSX manager</li>
+<li>Provides authentication\authorization capabilities</li>
+</ul>
+</li>
+<li>Proton
+<ul>
+<li>Core of NSX manager node</li>
+<li>It manages logical switching, routing, distributed fw, etc.</li>
+</ul>
+</li>
+<li>CorfuDB
+<ul>
+<li>Persistent DB where things are stored as log
+ <img src="/images/manager.png" width="70%" > 
+
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>NSX Controller role</strong>
+<ul>
+<li>Control plane is divided into:
+<ul>
+<li>CCP (Central Control Plane)
+<ul>
+<li>Being to NSX manager node</li>
+<li>Offered by NSX Controller role</li>
+</ul>
+</li>
+<li>LCP (local control plane)
+<ul>
+<li>Exists on destination hosts or NSX Edge transport nodes</li>
+</ul>
+</li>
+<li>RCP calls for manage communications
+ <img src="/images/controller.png" width="70%" > 
+
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="control-plane">Control Plane</h2>
+<ul>
+<li>Compute the runtime state of the system based on configuration from the management plane</li>
+<li>Propagate topology information</li>
+<li>Push stateless configurations to forwarding engine</li>
+<li>3 VM for NSX Manager Appliance &ndash;&gt; all 3 VM are active on control plane!</li>
+<li>Divided into:
+<ul>
+<li><strong>CCP (Central Control Plane)</strong>
+<ul>
+<li>Being to NSX manager node</li>
+<li>Offered by NSX Controller role</li>
+<li>advanced distributed state management system that controls virtual networks and overlay transport tunnels</li>
+<li>deployed as a cluster of highly available virtual appliances that are responsible for the programmatic deployment of virtual networks across the entire NSX-T Data Center architecture</li>
+<li>CCP is logically separated from all data plane traffic, meaning any failure in the control plane does not affect existing data plane operations</li>
+<li>Traffic doesn’t pass through the controller</li>
+<li>They host the central control plane cluster (CCP) daemons.</li>
+</ul>
+</li>
+<li><strong>LCP (Local Control Plane)</strong>
+<ul>
+<li>Exists on destination hosts { aka transport nodes or Edge (transport) nodes}</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="data-plane">Data Plane</h2>
+<ul>
+<li>Data plane resides on transport node
+<ul>
+<li>host local control plane (LCP) daemons and forwarding engines</li>
+<li>NSX-T requires transport nodes in order to perform networking services (overlay\VLAN)</li>
+<li>Forward data plane traffic from VMs, container, application that runs on bare-metal servers</li>
+</ul>
+</li>
+</ul>
+<p><strong>Node Type</strong><br>
+ <img src="/images/node.png" width="90%" > 
+
+</p>
+<ul>
+<li>(Hypervisor) Transport Node
+<ul>
+<li>Host prepared\configured for NSX-T</li>
+<li>ESXi or KVM</li>
+</ul>
+</li>
+<li>(Transport) Edge Node
+<ul>
+<li>Service appliance (SR) on T0/T1 dedicated to centralised services o physical connectivity</li>
+</ul>
+</li>
+</ul>
+<p><strong>Transport Node Architecture</strong><br>
+ <img src="/images/transport.png" width="60%" > 
+
+</p>
+<ul>
+<li>Appliance Proxy Hub
+<ul>
+<li>provides communication between nsx-proxy and upper layers</li>
+<li>It resides in NSX Manager</li>
+<li>2 communication channels
+<ul>
+<li>TCP 1234: mgmt &lt;-&gt; transport</li>
+<li>TCP 1235: CCP &lt;-&gt; transport (nsx-proxy)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>nsx-proxy
+<ul>
+<li>service responsible for communication with NSX-T Control Plane</li>
+<li>Receive configuration from CCP upper layer</li>
+<li>TCP port 1235</li>
+<li>in order to check: /etc/init.d/nsx-proxy status</li>
+</ul>
+</li>
+<li>nsx-mpa
+<ul>
+<li>service responsible for communication with NSX-T Management Plane</li>
+<li>TCP port 5671</li>
+<li>in order to check: esxcli network ip connection list | grep 5671</li>
+</ul>
+</li>
+<li>When an ESXi host becomes a transport node, a number of vmkernel (vmk#) interfaces get created.<br>
+They start with:
+<ul>
+<li>from vmk10
+<ul>
+<li>TEP interface (IP from my IP pool)</li>
+<li>one for each TEP interfaces</li>
+<li>for overlay traffic transport (Geneve)</li>
+</ul>
+</li>
+<li>vmk50
+<ul>
+<li>Hyperbus interface</li>
+<li>internal loopback interf used for communication with host containerized workloads</li>
+<li>no traffic outiside of ESXi host</li>
+<li>Network automatically configured with an IP from APIPA IP  range (169.254.0.0/24 subnet)</li>
+<li>If the hyperbus interface (vmk50) is not present, the hypervisor host preparation for NSX-T is not complete<br>
+ <img src="/images/vmk.png" width="70%" > 
+
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>Virtual Switch Type</strong></p>
+<ul>
+<li>VDS
+<ul>
+<li>vSphere Distributed Switch (vSwitch)</li>
+<li>Only from ESXi vSphere (7.0 or later)</li>
+<li>Depend on vCenter</li>
+<li>Appear as distributed switch in vCenter</li>
+</ul>
+</li>
+<li>N-VDS
+<ul>
+<li>Switch managed by NSX Manager</li>
+<li>Can exist with standard\distributed switches</li>
+<li>Based on:
+<ul>
+<li>ESXi &ndash;&gt; nsxt-vSwitch</li>
+<li>OVS &ndash;&gt; Open vSwitch
+<ul>
+<li>NSX-Agent can configured the OVS via OVSDB and OpenFlow protocol</li>
+<li>NSX-proxy optimized for KVM</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>Operational Mode Datapath</strong></p>
+<ul>
+<li><em>Standard Datapath</em>
+<ul>
+<li>VDS and N-VDS</li>
+<li>it not require specific hardware</li>
+</ul>
+</li>
+<li><em>Enhanced Datapath</em>
+<ul>
+<li>Available only for ESXi transport node only!</li>
+<li>It use DPDK and Numa feature
+<ul>
+<li>Data Plane Development Kit (DPDK)-based N-VDS</li>
+</ul>
+</li>
+<li>Focused on NFV application cases where performances are needed (High packet rate, Low latency, low jitter)</li>
+</ul>
+</li>
+</ul>
+<p><strong>Transport Nodes Profile</strong></p>
+<ul>
+<li>It will be applied to an entire cluster in order to configure the hosts to be prepared for NSX-T Data center</li>
+<li>It define:
+<ul>
+<li><strong>VXLAN Tunnel EndPoint (VTEP)</strong>
+<ul>
+<li>Necessary for Overlay segment</li>
+<li>Each transport node require at least 1 IP from TEP dedicated pool</li>
+<li>TEP enables ESXi hosts to participate in an NSX-T overlay network.</li>
+<li>KVM support only 1 TEP IP</li>
+<li>The TEP IP Pool does NOT necessarily need to be routable</li>
+<li>IPs can be in the same subnet or different subnets</li>
+</ul>
+</li>
+<li><strong>Transport Zone</strong>
+<ul>
+<li>Collection of transport node that can communicate each other between TEPs interfaces
+<ul>
+<li>Different transport node type can participate in the same transport zone</li>
+<li>Can span 1 or more cluster</li>
+<li>Nodes can carry 2 different traffic type (so 2 different transport zone):
+<ul>
+<li>Overlay
+<ul>
+<li>Internal communication between hosts</li>
+<li>Carry Geneve-traffic-encapsulation</li>
+</ul>
+</li>
+<li>VLAN
+<ul>
+<li>External communication from hosts</li>
+<li>Requires NSX Edge uplinks in order to communicate</li>
+<li>Carry 802.1q tagged traffic</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><em>Replication Mode</em>
+<ul>
+<li>Unicast
+<ul>
+<li>Routing between VTEP subnets</li>
+</ul>
+</li>
+<li>Multicast
+<ul>
+<li>Routing between VTEP subnets</li>
+<li>Layer 2 multicast, IGMP</li>
+<li>Layer 3 multicast, PIM</li>
+<li>Assignment of multicast groups to logical switches</li>
+</ul>
+</li>
+<li>Hybrid
+<ul>
+<li>Routing between VTEP subnets</li>
+<li>Layer 2 multicast, IGMP</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Uplink Profile / physical NIC mapping</strong>
+<ul>
+<li>Uplink profile define:
+<ul>
+<li>NIC Teaming Policy
+<ul>
+<li>Host differences
+<ul>
+<li>ESXi
+<ul>
+<li>No limits with teaming policies, LAG creation and so on</li>
+<li>NIC Teaming policies</li>
+<li>Failover order (only 1 uplink active at a time)</li>
+<li>Load balanced source (multiple uplink active at a time)</li>
+<li>Load balanced source MAC</li>
+</ul>
+</li>
+<li>KVM
+<ul>
+<li>Only 1 LAG can be created with all physical NICs</li>
+<li>NIC Teaming policy</li>
+<li>Failover order</li>
+<li>Original traffic distribution not restored after link recovery</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Active/Standby links</li>
+<li>Overlay transport VLAN ID (ESXi TEP VLAN)</li>
+<li>MTU
+<ul>
+<li>NSX-T require al least 1600 for geneve tunnel</li>
+<li>9000 suite best</li>
+</ul>
+</li>
+<li>Network I\O Control Profile
+<ul>
+<li>The same studied for DCV</li>
+<li>Can be configured from NSX UI</li>
+</ul>
+</li>
+<li>N-VDS or VDS switch configuration</li>
+<li>IP assignment</li>
+<li>VMkernel and Physical adapter migration</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>Host Preparation</strong> (in order to became a transport node)</p>
+<ul>
+<li>KVM
+<ul>
+<li>Automated mode
+<ul>
+<li>via NSX GUI</li>
+<li>Deb\rpm packages will be automatically installed on the host</li>
+<li>Host promoted as transport node</li>
+</ul>
+</li>
+<li>Manual mode
+<ul>
+<li>Via CLI</li>
+<li>Dowload\install deb\rpm packages on the host, then launch join management-plane in order to register host in NSX manager</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+		</section>
+
+		<div class="post-tags">
+			
+			
+			
+		</div>
+	</article>
+</main>
+<footer>
+<hr><a class="soc" href="mailto://f.racano8@live.com" title="Mail"><i data-feather="mail"></i></a>|<a class="soc" href="https://www.linkedin.com/in/francescoracano/" title="Linkedin"><i data-feather="linkedin"></i></a>|<a class="soc"><img src="https://visitor-badge.glitch.me/badge?page_id=https%3a%2f%2fwww.altf4.space%2fposts%2f6%2f"/></a>
+</footer>
+
+
+<script>
+      feather.replace()
+</script></div>
+    </body>
+</html>
