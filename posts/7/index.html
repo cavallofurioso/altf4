@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html><head>
+	<meta name="google-site-verification" content="a660g_SgI9qGFjSabNGHMuY1gPEMc44t1okRRp59gRM" />
+
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>VCP-NV 2022 Study Guide - Ep.3 - NSX-T Architecture - Alt_F4</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Logical Switching and Routing" />
+	<meta property="og:image" content=""/>
+	<meta property="og:title" content="VCP-NV 2022 Study Guide - Ep.3 - NSX-T Architecture" />
+<meta property="og:description" content="Logical Switching and Routing" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.altf4.space/posts/7/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-03-27T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-03-27T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="VCP-NV 2022 Study Guide - Ep.3 - NSX-T Architecture"/>
+<meta name="twitter:description" content="Logical Switching and Routing"/>
+<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@1,500&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="https://www.altf4.space/css/main.04665087ed99595f612ab38717920e598809930ff391f79020ab592da9fe2166.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://www.altf4.space/css/dark.eade6946e6cd96c385cb2c987e0811e6ae4538dc87af8c3178608f6dbaef354c.css"  disabled />
+	
+	
+	
+</head>
+<body>
+        <div class="content"><header>
+	<div class="main">
+		<a href="https://www.altf4.space">Alt_F4</a>
+	</div>
+	<nav>
+		
+		<a href="/">Home</a>
+		
+		<a href="/posts">Blog</a>
+		
+		<a href="/tags">Tags</a>
+		
+		<a href="/about">About</a>
+		
+		| <a id="dark-mode-toggle" onclick="toggleTheme()" href=""></a>
+		<script src="https://www.altf4.space/js/themetoggle.js"></script>
+		
+	</nav>
+</header>
+
+<main>
+	<article>
+		<div class="title">
+			<h1 class="title">VCP-NV 2022 Study Guide - Ep.3 - NSX-T Architecture</h1>
+			<div class="meta">Posted on Mar 27, 2022</div>
+		</div>
+		
+
+		<section class="body">
+			<p><em>3th episode with NSX-T 2V0-41.20 Exam Guide!</em></p>
+<p>I hope that these notes (similat to a study guide) can help lot of people to be ready for the exam and also go indeep on some topics that course never covered in this way.<br>
+My study way is to bring notes and organize them into a maxi bullet list: fewer words used, in order to improve organization and concepts memorization.</p>
+<pre><code>This notes are not intended to replace official courses and books
+</code></pre>
+<hr>
+<h2 id="logical-switching">Logical Switching</h2>
+ <img src="/images/switching.png" width="90%" > 
+
+
+<p><strong>Segment</strong></p>
+<ul>
+<li>2 broadcast domain</li>
+<li>Type
+<ul>
+<li>VLAN segment
+<ul>
+<li>Cons:  a dedicated  VLAN needs to be provisioned in the physical infrastructure (in order to make possible vm connectivity between different hosts)</li>
+</ul>
+</li>
+<li>Overlay segment
+<ul>
+<li>Pro: tunneling grant connectivity between VM on different hosts carried via tunnel between that hosts</li>
+<li>Tunnels are maintained by NSX</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Must be associated to a transport zone (overlay or vlan)</li>
+<li>Different switches can coexist on the same transport node</li>
+<li>An N-VDS Overlay segment is exposed as an opaque network into vSphere</li>
+<li>A VDS overlay segment is exposed as distributed switch into vSphere
+ <img src="/images/opaque.png" width="90%" > 
+
+</li>
+</ul>
+<p><strong>Tunneling</strong></p>
+<ul>
+<li>Overlay mode</li>
+<li>Not proprietary</li>
+<li>Used to forward traffic between hypervisors</li>
+<li><strong>Geneve protocol</strong>
+<ul>
+<li>to encapsulate data traffic</li>
+<li>UDP as L4 protocol</li>
+<li>MTU = 9000</li>
+<li>VM frame is encapsulated into geneve header and then sent to destination TEP  port 6081via</li>
+<li>Segment identified (VNI) via 24-bit [16 million segments vs max 4000 vlan segment)</li>
+<li>Adaptable for future use, versatile</li>
+</ul>
+</li>
+<li>Hypervisor communicate each other between TEP tunnels</li>
+</ul>
+<h2 id="logical-routing">Logical Routing</h2>
+ <img src="/images/routing1.png" width="90%" > 
+
+
+<p><strong>Tier topology</strong></p>
+<ul>
+<li>
+<p>Single tier topology</p>
+<ul>
+<li>Physical router are connected to only one T0, that is directly connected to 1 or more segments</li>
+<li>No networking segmentation required here</li>
+<li>The T0 has 2 uplinks to physical network &ndash;&gt; every SR is located only on edge node</li>
+<li>DR distributed across all transport nodes
+ <img src="/images/single.png" width="90%" > 
+
+</li>
+</ul>
+</li>
+<li>
+<p>Multi-Tier topology 
+ <img src="/images/multi.png" width="90%" > 
+
+</p>
+</li>
+</ul>
+<p><strong>NSX Edge (Transport) Node</strong></p>
+<ul>
+<li>It&rsquo;s required if you want to deploy a tier-0 router or a tier-1 router with stateful services</li>
+<li>Requirements
+<ul>
+<li>Transport zones must be configured.</li>
+<li>Verify that compute manager is configured.</li>
+<li>An uplink profile must be configured or you can use the default uplink profile for NSX Edge nodes.</li>
+<li>An IP pool must be configured or must be available in the network deployment.</li>
+</ul>
+</li>
+<li>Config notes
+<ul>
+<li>Exists as bare-metal or VM
+<ul>
+<li>as VM only on ESXi</li>
+</ul>
+</li>
+<li>Can be deployed  using NSX UI, via OVF on vCenter, via OVF tool cli, ISO file via PXE server</li>
+<li>Different vm sizes</li>
+<li>Edge VM must be configured with at least 1 nic for mgmt (eth0), 1 for overlay and 1 dedicated for every N-VDC</li>
+<li>Can belongs only to 1 cluster</li>
+<li>An edge node can be associated to only 1 uplink T0</li>
+<li>Edge node are grouped into an Edge cluster
+<ul>
+<li>Edge Cluster
+<ul>
+<li>Scope
+<ul>
+<li>To provide edge node HA</li>
+<li>When stateful services are required</li>
+</ul>
+</li>
+<li>Deploy Info
+<ul>
+<li>Maximum 10 edge node can be created</li>
+<li>Max 160 clusters</li>
+<li>Different sizes</li>
+<li>Tips: put edge node on ESXI with VDS managed vSwitch (not N-VDS vSwitch) &ndash;&gt; traffic double nested!</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Edge Node features (aka services that it can provide)
+<ul>
+<li>Connectivity to physical infrastructure (static routing / BGP / MP-BGP)</li>
+<li>VRF-lite</li>
+<li>NAT</li>
+<li>DHCP server</li>
+<li>Metadata proxy</li>
+<li>Gateway Firewall</li>
+<li>Load Balancer</li>
+<li>L2 Bridging</li>
+<li>Service Interface</li>
+<li>Service Insertion</li>
+<li>VPN</li>
+</ul>
+</li>
+<li>Transport zone
+<ul>
+<li>Only one overlay transport zone
+<ul>
+<li>Basically for connectivity to physical infra or for services</li>
+</ul>
+</li>
+<li>One or more vlan transport zone</li>
+</ul>
+</li>
+<li>Services cannot be distributed to hypervisor</li>
+<li>it runs the local control plane (LCP) daemons and forwarding engines implementing the NSX-T data plane</li>
+<li>It runs an instance of the NSX-T virtual switch called the NSX Virtual Distributed Switch, or N-VDS</li>
+<li>Separated routing table between mgmt and overlay traffic</li>
+<li>Offers DPDK-based vm for high performances!</li>
+</ul>
+<p><strong>Gateway components (both on T0 and T1)</strong></p>
+<ul>
+<li><strong>DR</strong>
+<ul>
+<li>East-west</li>
+<li>is a router with logical interfaces (LIF) connected to multiple subnets
+The traditional data plane functionality of routing and ARP lookups is performed by the 
+logical interfaces connecting to the different segments. Each LIF has a vMAC address and an IP 
+address being the default IP gateway for its connected segment. The IP address is unique per LIF 
+and remains the same everywhere the segment exists. The vMAC associated with each LIF 
+remains constant in each hypervisor, allowing the default gateway IP and MAC addresses to 
+remain the same during vMotion.</li>
+<li>DR is not a VM</li>
+<li>DR on both hypervisors has the same IP addresses</li>
+<li>Quick routing functionalities
+<ul>
+<li>always created when creating a gateway</li>
+</ul>
+</li>
+<li>Distributed Router
+<ul>
+<li>it span all transport node (also edge node) in the transport zone</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>SR</strong>
+<ul>
+<li>North-South</li>
+<li>Service Router
+<ul>
+<li>It provides centralized services that cannot be distributed  (Physical Connectivity, NAT, DHCP, Load Balancers, etc.)</li>
+<li>It&rsquo;s created when a T0 gateway is configured with uplinks to the physical network.</li>
+<li>it spans only on edge nodes (in a edge cluster)
+<ul>
+<li>A centralized pool of capacity is required to run these services</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>Interfaces</strong></p>
+<ul>
+<li>External
+<ul>
+<li>Connected to the physical infrastructure/router</li>
+</ul>
+</li>
+<li>Service
+<ul>
+<li>connect VLAN segments (for VLAN backed physical or virtual workloads)</li>
+<li>connect overlay segments for Tier-1 standalone load balancer use cases</li>
+<li>North-south service insertion (in order to redirect north-south traffic to SVMs)</li>
+</ul>
+</li>
+<li>Intra-tier transit link
+<ul>
+<li>SR-DR internal connection</li>
+<li>automatically created when a service router is created</li>
+<li>link use the 169.254.0.0/28 subnet</li>
+</ul>
+</li>
+<li>RouterLink port
+<ul>
+<li>T0-T1 connection</li>
+<li>automatically created when T0 and T1  are connected</li>
+<li>The default address space assigned is 100.64.0.0/10
+<ul>
+<li>Each tier-0-to-tier-1 peer connection is provided with a /31 subnet (within the 100.64.0.0/10 address space) 
+ <img src="/images/interfaces2.png" width="90%" > 
+
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>Services Type</strong></p>
+<ul>
+<li>Stateful
+<ul>
+<li>require tracking of connection states</li>
+<li>require to read and write data (parameters)</li>
+<li>(ex. LB, gateway FW, SNAT, DNAT, VPN, DNS, DHCP)</li>
+</ul>
+</li>
+<li>Stateless
+<ul>
+<li>not require tracking connection</li>
+<li>does not read\write any data</li>
+<li>(ex. Reflexive NAT)</li>
+</ul>
+</li>
+</ul>
+<p><strong>Gateway</strong></p>
+<ul>
+<li><strong>Tier-0 Gateway</strong>
+<ul>
+<li>Routing direction
+<ul>
+<li>North-South</li>
+<li>East-West (only in single-tier topology)</li>
+</ul>
+</li>
+<li>Owned by the provider or infrastructure administrator</li>
+<li>Connection
+<ul>
+<li>Uplink: to physical network</li>
+<li>Downlink: to T1 gateway</li>
+</ul>
+</li>
+<li>Additional Interfaces
+<ul>
+<li>External Interface
+<ul>
+<li>Active-Active, Active-Standby</li>
+</ul>
+</li>
+<li>Service Interface
+<ul>
+<li>Active-Standby</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Gateway components
+<ul>
+<li>DR
+<ul>
+<li>span on all Transport and Edge nodes</li>
+<li>instantiated when a T0 is created</li>
+</ul>
+</li>
+<li>SR
+<ul>
+<li>span on the Edge Nodes only</li>
+<li>instantiated when services are required</li>
+<li>so during creation an edge cluster must be associated</li>
+<li>An edge node can support only 1 T0</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Tier-1 Gateway</strong>
+<ul>
+<li>East-west</li>
+<li>No routing protocol supported</li>
+<li>Owned by the tenant
+<ul>
+<li>Supports tenant isolation</li>
+</ul>
+</li>
+<li>Includes separate controls for different administrative domains</li>
+<li>Eliminates physical dependency when new tenants are introduced</li>
+<li>Connections
+<ul>
+<li>Uplink: to a tier-0 gateway
+<ul>
+<li>ECMP not available (just because there is only 1 link T1-T0)</li>
+</ul>
+</li>
+<li>Downlink: to segments</li>
+</ul>
+</li>
+<li>Interfaces
+<ul>
+<li>Service</li>
+</ul>
+</li>
+<li>Gateway components
+<ul>
+<li>DR
+<ul>
+<li>span on Transport and Edge Nodes</li>
+<li>instantiated when a T1 is created</li>
+</ul>
+</li>
+<li>SR
+<ul>
+<li>span on the Edge Nodes only</li>
+<li>instantiated when an edge cluster is configured on T1</li>
+<li>so during creation an edge cluster must be associated</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>Routing</strong></p>
+<ul>
+<li>No routing between T0 and T1
+<ul>
+<li>When a Tier-1 gateway is connected to a Tier-0 gateway, a default route is automatically created on the Tier-1.<br>
+That default route is pointing to the RouterLink IP address that is owned by the Tier-0</li>
+</ul>
+</li>
+<li>Failover
+<ul>
+<li>Available protocols
+<ul>
+<li>ECMP
+<ul>
+<li>Use case: load balancing, increase bandwidth, fault tolerance</li>
+<li>up to 8 paths are supported</li>
+<li>only T0</li>
+<li>for external link direction</li>
+</ul>
+</li>
+<li>BFD (Bidirectional Forwarding Detection)
+<ul>
+<li>only T0</li>
+<li>on the management and overlay network</li>
+<li>for internal link direction</li>
+<li>fast node failure detection</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Protocols
+<ul>
+<li>Static
+<ul>
+<li>on T0 and T1</li>
+<li>ECMP and BFD compatible (only T0)</li>
+</ul>
+</li>
+<li>Dynamic
+<ul>
+<li>BGP
+<ul>
+<li>eBGP and iBGP
+<ul>
+<li>leaf-spine topology &ndash;&gt; eBGP is used between each other</li>
+<li>When BGP is configured please note that which differentiate eBGP and iBGP is the autonomous system! 
+Different AS = eBGP. Equal AS = iBGP</li>
+</ul>
+</li>
+<li>only T0</li>
+<li>ECMP and BFD compatible (T0)</li>
+<li>Allow AS-IN
+<ul>
+<li>allow route advertisement with the same AS (by default NSX does not allow it in order to avoid loop)</li>
+</ul>
+</li>
+<li>Inter-SR routing
+<ul>
+<li>exchange routing info between internal SR in order to increase resiliency (to provide redundancy for physical router failure)</li>
+</ul>
+</li>
+<li>Route aggregation</li>
+<li>Route redistribution
+<ul>
+<li>enable T0 to share to the physical network the internal networks</li>
+</ul>
+</li>
+<li>Graceful Restart
+<ul>
+<li>when a BGP speaker is restarted its forwarding table is preserved with the reboot</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>SR Services HA</strong></p>
+<ul>
+<li>on T0 and T1</li>
+<li>SR mode operation
+<ul>
+<li>Active-Active
+<ul>
+<li>service workload redistributed between all members</li>
+<li>T0: available (default) - T1: not available</li>
+<li>ECMP and Inter-SR compatible</li>
+<li>stateless services</li>
+</ul>
+</li>
+<li>Active-Standby
+<ul>
+<li>logical routing active only on 1 edge node</li>
+<li>T0: available - T1: available</li>
+<li>stateful services</li>
+<li>Failover policy
+<ul>
+<li>Preemptive
+<ul>
+<li>active fails and standby becomes active. If the failed node goes up, the services switch back the original active node</li>
+</ul>
+</li>
+<li>Non-Preemptive
+<ul>
+<li>when active fail occurs, services switch to the standby node (even if the failed node goes up)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+		</section>
+
+		<div class="post-tags">
+			
+			
+			<nav class="nav tags">
+				<ul class="tags">
+					
+					<li><a href="/tags/nsx-t">NSX-T</a></li>
+					
+				</ul>
+			</nav>
+			
+			
+		</div>
+	</article>
+</main>
+<footer>
+<hr><a class="soc" href="mailto://f.racano8@live.com" title="Mail"><i data-feather="mail"></i></a>|<a class="soc" href="https://www.linkedin.com/in/francescoracano/" title="Linkedin"><i data-feather="linkedin"></i></a>|<a class="soc"><img src="https://visitor-badge.glitch.me/badge?page_id=https%3a%2f%2fwww.altf4.space%2fposts%2f7%2f"/></a>
+</footer>
+
+
+<script>
+      feather.replace()
+</script></div>
+    </body>
+</html>
