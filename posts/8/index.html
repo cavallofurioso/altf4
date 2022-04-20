@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html><head>
+	<meta name="google-site-verification" content="a660g_SgI9qGFjSabNGHMuY1gPEMc44t1okRRp59gRM" />
+
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>VCP-NV 2022 Study Guide - Ep.4 - NSX-T Architecture - Alt_F4</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="VRF-Lite - EVPN - Multicast" />
+	<meta property="og:image" content=""/>
+	<meta property="og:title" content="VCP-NV 2022 Study Guide - Ep.4 - NSX-T Architecture" />
+<meta property="og:description" content="VRF-Lite - EVPN - Multicast" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.altf4.space/posts/8/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-04-18T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-04-18T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="VCP-NV 2022 Study Guide - Ep.4 - NSX-T Architecture"/>
+<meta name="twitter:description" content="VRF-Lite - EVPN - Multicast"/>
+<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@1,500&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="https://www.altf4.space/css/main.04665087ed99595f612ab38717920e598809930ff391f79020ab592da9fe2166.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://www.altf4.space/css/dark.eade6946e6cd96c385cb2c987e0811e6ae4538dc87af8c3178608f6dbaef354c.css"  disabled />
+	
+	
+	
+</head>
+<body>
+        <div class="content"><header>
+	<div class="main">
+		<a href="https://www.altf4.space">Alt_F4</a>
+	</div>
+	<nav>
+		
+		<a href="/">Home</a>
+		
+		<a href="/posts">Blog</a>
+		
+		<a href="/about">About</a>
+		
+		| <a id="dark-mode-toggle" onclick="toggleTheme()" href=""></a>
+		<script src="https://www.altf4.space/js/themetoggle.js"></script>
+		
+	</nav>
+</header>
+
+<main>
+	<article>
+		<div class="title">
+			<h1 class="title">VCP-NV 2022 Study Guide - Ep.4 - NSX-T Architecture</h1>
+			<div class="meta">Posted on Apr 18, 2022</div>
+		</div>
+		
+
+		<section class="body">
+			<p><em>4th episode with NSX-T 2V0-41.20 Exam Guide!</em></p>
+<p>I hope that these notes (similat to a study guide) can help guys to be ready for the exam and also go indeep on some topics that course never covered.<br>
+My notes are organized into a maxi bullet list: fewer words are used, in order to help memorize concept and useful things.</p>
+<pre><code>This notes are not intended to replace official courses and books
+</code></pre>
+<hr>
+<h2 id="vrf-lite">VRF-Lite</h2>
+ <img src="/images/vrflite.png" width="100%" > 
+<p><strong>What is a VRF?</strong></p>
+<ul>
+<li>It allows you to logically use a single physical router into multiple routers (or routing instances)</li>
+<li>Each VRF instance has its own independent routing table and interfaces on the same router</li>
+<li>In this way is possible to have a multitenant environment where each tenant can have a unique or overlapping address space that functions independently  and without any conflict with other tenant addressing schema</li>
+<li>Each network customers router advertisements are identified using Route Distinguisher field</li>
+<li>Each customer could have overlapping private address space where route uniqueness was maintained inside the Service Provider network by converting IPv4 route to VPNv4 route that is route+RD</li>
+</ul>
+<p><strong>VRF on NSX-T</strong></p>
+<ul>
+<li>Before NSX-T 3.0
+<ul>
+<li>only way to extend tenant VRF from underlay to Virtual network was by deploying separate T-0 for each tenant to separate their routing instance.</li>
+</ul>
+</li>
+<li>From NSX-T 3.0 there is:
+<ul>
+<li>
+<p><strong>VRF-Lite</strong></p>
+<ul>
+<li>Use cases
+<ul>
+<li>multiple routing instances on single T0 without need of deploying additional T-0 Gateways for each tenant</li>
+<li>implementation without MPLS</li>
+</ul>
+</li>
+<li>VLAN tagging in the uplink trunk segment provides isolation for each VRF
+<ul>
+<li>Data Plane: VLAN is the channel for the data plane</li>
+<li>Control Plane: BGP protocol for each VRF provides</li>
+</ul>
+</li>
+<li>No inter-SR routing &ndash;&gt; need to route through physical network device</li>
+<li>No compatible with VPN and LB</li>
+<li>No inter-SR routing &ndash;&gt; need to route through physical network device</li>
+<li>Deployment
+<ul>
+<li>Additional VLAN and BGP peer configuration required per each VRF</li>
+<li>Allow same network addresses to coexist in different routing domains</li>
+<li>Configuration
+<ol>
+<li>A default (father) T0 must be created and connected to physical devices</li>
+<li>A VRF T0 (child) gateway must be deployed and connected via uplink interfaces to LR trunk port
+<ul>
+<li>VRF Gateway
+<ul>
+<li>it inherits from father:
+<ul>
+<li>failover mode</li>
+<li>Edge cluster</li>
+<li>internal transit subnet</li>
+<li>T0-T1 transit subnet</li>
+<li>BGP routing config</li>
+</ul>
+</li>
+<li>on a single VRF gw 100 VRFs can be associated with a single Tier-0 Gateway</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Connect T1 gateway to VRF gateway</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>Interfaces
+<ul>
+<li>LR Trunk Port: Parent T0 with physical network</li>
+<li>Uplink: internal connection for VRF gw to LR trunk</li>
+<li>Downlink: for segment attached directly to vrf gateway</li>
+<li>RouterLink</li>
+</ul>
+</li>
+</ul>
+ <img src="/images/vrfliteint.png" width="70%" > 
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="evpn">EVPN</h2>
+<p> <img src="/images/evpn1.png" width="90%" > 
+ <img src="/images/evpn2.png" width="90%" > </p>
+<ul>
+<li>only from NSX-T 3.0</li>
+<li>no compatible with VPN and LB</li>
+<li>low administrative tasks (compared to VRF-Lite)</li>
+<li>Use cases
+<ul>
+<li>expands L2\L3 over IP\MPLS core networks with data\control plane separation</li>
+<li>useful for Telco Cloud, in order to integrate traditional network to Cloud\NFV (++ scale, throughput)</li>
+</ul>
+</li>
+<li>Deployment
+<ul>
+<li>Requirements
+<ul>
+<li>T0 deployed
+<ul>
+<li>VRF-enabled NSX gateways will be deployed on it</li>
+</ul>
+</li>
+<li>a vendor vRouter
+<ul>
+<li>with BGP\VLAN capabilities (so they are multi-tenant capable)</li>
+<li>attached to T0 and tenant segments</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>EVPN will extend existing VRFs (on the vRouter) in traditional IP/MPLS core networks to the virtual networks (segments) in NSX-T</li>
+<li>support different encapsulation types: VXLAN, MPLS, NVGRE</li>
+</ul>
+</li>
+</ul>
+<p><strong>Data Plane</strong></p>
+<ul>
+<li>They use VXLAN tunnels for T0- Remote gateways (aka DCGW) interconnection
+<ul>
+<li>just because there are few DCGW that support Geneve protocol</li>
+</ul>
+</li>
+<li>VRF provide isolation between tenants</li>
+</ul>
+<p><strong>Control Plane</strong></p>
+<ul>
+<li>eBGP instance per each tenant between vRouter and VRF  child Gateway</li>
+<li>unique MP-BGP between parent T0 and DCGW
+<ul>
+<li>MP-BGP:  an extension to BGP that allows different types of addresses (known as address families) to be distributed in parallel</li>
+</ul>
+</li>
+</ul>
+<h2 id="multicast">Multicast</h2>
+ <img src="/images/multicast.png" width="90%" > 
+<ul>
+<li>Protocols
+<ul>
+<li>IGMP
+<ul>
+<li>L2 protocol</li>
+<li>for establish multicast membership between hosts and adjacent routes</li>
+<li>enabled on T0 downlink</li>
+</ul>
+</li>
+<li>PIM
+<ul>
+<li>L3 routing protocol</li>
+<li>for route multicast traffic between different networks</li>
+<li>enabled on T0 uplink</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Multicast topology
+<ul>
+<li>multiple sender\receivers &ndash;&gt; can be on physical network (PIM cloud) or on NSX-T networks</li>
+</ul>
+</li>
+<li>Deployment
+<ul>
+<li>T0 and T1</li>
+<li>no L2 Bridges support</li>
+<li>no KVM support</li>
+<li>PIM can only be enabled in one uplink per SR</li>
+<li>VRF gateways do not support multicast</li>
+</ul>
+</li>
+<li>PIM Sparse Mode Forwarding
+<ul>
+<li>multicast traffic in not forwarded to an interface until a request is received</li>
+</ul>
+</li>
+</ul>
+<h2 id="logical-bridging">Logical Bridging</h2>
+ <img src="/images/bridging.png" width="90%" > 
+<ul>
+<li>provide a way to communicate L2 between overlay netowrks and physicla VLAN networks</li>
+<li>useful when a migration from physical to virtual is needed</li>
+<li>Bridging feature is provided by SR as a stateful service</li>
+<li>Configuration
+<ul>
+<li>Bridge profile
+<ul>
+<li>It specify which edge nodes are involved in bridging</li>
+<li>They can be reused between different edge nodes</li>
+<li>It contains the vlan where you want to bridge</li>
+</ul>
+</li>
+<li>Bridge-backend segment
+<ul>
+<li>part of an overlay transport zone</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+		</section>
+
+		<div class="post-tags">
+			
+			
+			<nav class="nav tags">
+				<ul class="tags">
+					
+					<li><a href="/tags/nsx-t">NSX-T</a></li>
+					
+				</ul>
+			</nav>
+			
+			
+		</div>
+	</article>
+</main>
+<footer>
+<hr><a class="soc" href="mailto://f.racano8@live.com" title="Mail"><i data-feather="mail"></i></a>|<a class="soc" href="https://www.linkedin.com/in/francescoracano/" title="Linkedin"><i data-feather="linkedin"></i></a>|<a class="soc"><img src="https://visitor-badge.glitch.me/badge?page_id=https%3a%2f%2fwww.altf4.space%2fposts%2f8%2f"/></a>
+</footer>
+
+
+<script>
+      feather.replace()
+</script></div>
+    </body>
+</html>
