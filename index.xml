@@ -6,7 +6,16 @@
     <description>Recent content on Alt_F4</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 21 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://www.altf4.space/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 25 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://www.altf4.space/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>EX180 - Red Hat Specialist in Containers and Kubernetes</title>
+      <link>https://www.altf4.space/posts/10/</link>
+      <pubDate>Mon, 25 Apr 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.altf4.space/posts/10/</guid>
+      <description>Tips and Tricks</description>
+    </item>
+    
     <item>
       <title>Personal Struggles</title>
       <link>https://www.altf4.space/posts/9/</link>
@@ -23,15 +32,6 @@
       
       <guid>https://www.altf4.space/posts/8/</guid>
       <description>VRF-Lite - EVPN - Multicast</description>
-    </item>
-    
-    <item>
-      <title>EX180 - Red Hat Specialist in Containers and Kubernetes</title>
-      <link>https://www.altf4.space/posts/10/</link>
-      <pubDate>Mon, 11 Apr 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.altf4.space/posts/10/</guid>
-      <description>Tips and Tricks</description>
     </item>
     
     <item>
@@ -94,7 +94,7 @@
       <pubDate>Sat, 12 Feb 2022 00:00:00 +0000</pubDate>
       
       <guid>https://www.altf4.space/about/</guid>
-      <description>Last updated: 2022-02-21  Francesco Racano  Telecommunication Engineer  7+ years expertise in NFV, Networking and DVB Consultant for Capgemini Engineering   Technology Geek Trekking Lover Sport Enthusiast  Achievements and Certificates  Red Hat Certified Specialist in Containers and Kubernetes VMware Certified Professional – Network Virtualization 2022 (VCP-NV) AWS Certified Cloud Practitioner VMware Certified Professional - Data Center Virtualization 2021 (VCP-DCV) UBIqube - Essential and Advanced Developer Certification Autopsy - Digital Forensics Certification CCNA Master’s Degree - Telecommunication Engineering - Politecnico di Bari Degree - Telecommunication Engineering - Politecnico di Bari  </description>
+      <description>Last updated: 2022-02-22  Francesco Racano  Telecommunication Engineer  7+ years expertise in NFV, Networking and DVB Consultant @ Capgemini Engineering   Technology Geek Trekking Lover Sport Enthusiast  Achievements and Certificates  Red Hat Certified Specialist in Containers and Kubernetes VMware Certified Professional – Network Virtualization 2022 (VCP-NV) AWS Certified Cloud Practitioner VMware Certified Professional - Data Center Virtualization 2021 (VCP-DCV) UBIqube - Essential and Advanced Developer Certification Autopsy - Digital Forensics Certification Cisco CCNA Master’s Degree - Telecommunication Engineering - Politecnico di Bari Degree - Telecommunication Engineering - Politecnico di Bari  </description>
     </item>
     
     <item>

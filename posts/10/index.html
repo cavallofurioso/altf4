@@ -10,8 +10,8 @@
 <meta property="og:description" content="Tips and Tricks" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.altf4.space/posts/10/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2022-04-11T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-04-11T00:00:00+00:00" />
+<meta property="article:published_time" content="2022-04-25T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-04-25T00:00:00+00:00" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="EX180 - Red Hat Specialist in Containers and Kubernetes"/>
@@ -22,8 +22,8 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://www.altf4.space/css/main.04665087ed99595f612ab38717920e598809930ff391f79020ab592da9fe2166.css" />
-		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://www.altf4.space/css/dark.eade6946e6cd96c385cb2c987e0811e6ae4538dc87af8c3178608f6dbaef354c.css"  disabled />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://www.altf4.space/css/main.c9aa7fb04793ba41afc1e3f8951f4955b667405ec41a28cfa48ed8247f0377c8.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://www.altf4.space/css/dark.19e529487c43ab9144c2dd05df52bec5c2aa9854b7363c8db012510b4dfd80ed.css"  disabled />
 	
 	
 	
@@ -41,6 +41,8 @@
 		
 		<a href="/about">About</a>
 		
+		<a href="/tags">Tags</a>
+		
 		| <a id="dark-mode-toggle" onclick="toggleTheme()" href=""></a>
 		<script src="https://www.altf4.space/js/themetoggle.js"></script>
 		
@@ -51,14 +53,78 @@
 	<article>
 		<div class="title">
 			<h1 class="title">EX180 - Red Hat Specialist in Containers and Kubernetes</h1>
-			<div class="meta">Posted on Apr 11, 2022</div>
+			<div class="meta">Published on Apr 25, 2022
+				
+			</div>
+			<div class="meta">Updated on Apr 25, 2022
+				
+			</div>
 		</div>
 		
 
 		<section class="body">
-			<p>**</p>
-<hr>
-<h2 id="logical-switching">Logical Switching</h2>
+			<p>I took the EX180 certification few weeks ago.<br>
+I was really hard for me just because exam provides 2 hours that are just fine to do all things (I mean that there is no lot of time to review or retake some objectives).
+I hope that these tips can help someone.</p>
+<pre><code>Disclaimer\
+This site is not affiliated with Red Hat in any way. All the information provided here are from my personal experience.
+</code></pre>
+<h1 id="how-is-structured-a-red-hat-exam">How is structured a Red Hat exam?</h1>
+<p>There are some point to note about the exam:</p>
+<ul>
+<li>time available to work on all tasks is equal to 2 hours.<br>
+This time also include an optionaly break (max 10&rsquo;),  chats or room controls with remote guy and guideline reading</li>
+<li>there is no automatic system that automatically check what you do during the exam (so if you reached what the task asked for): the only way is to check yourself using command line</li>
+<li>keep attention: a task can be striclty connected to a previous one so it means that a wrong result in a task can affect another one</li>
+</ul>
+<h1 id="environment">Environment</h1>
+<ul>
+<li>In order to access exam environemnt you first need to create a usb key formatted following guidelines provided by RedHat.
+When your usb key is ready, plug the key and reboot in order to boot from the key itself</li>
+<li>first do a compatibility check, in order to see if all things works well (connection, speakers, cams, etc.)</li>
+<li>15&rsquo; prior to exam, boot to usb key and access to the exam environment</li>
+<li>you will be logged into a RHEL8 environment with Gnome DE:
+<ul>
+<li><strong>Alt-Tab does not work</strong>. In order to move between browser (pre-installed Firefox) and terminal just click on top-left corner</li>
+<li>only gedit and vim are available as text editor</li>
+<li>environment will automatically open firefox on a specific page, on which there are:
+<ul>
+<li>exam guidelines</li>
+<li>useful tips about linux (like moving file, change permissions, etc.)</li>
+<li>objectives (on the bottom) that you need to solve in order to pass exam</li>
+</ul>
+</li>
+<li>exam will ask you to use lot of parameter: in order to avoid some mistakes (that will move you to a wrong results) copy-paste items from the browser.<br>
+Copy from browser as usual (right-click and copy command or CTRL-C), then pasta into terminal using CTRL-SHIFT-V</li>
+<li>objectives requires to create bash script in specific folder, that already contains dockerfile. Do not use them in order to follow objective</li>
+<li>always follow instructions only from browser, just becuase instruction in script\dockerfile sometimes can be different and push you to a bad result</li>
+</ul>
+</li>
+</ul>
+<h1 id="objectives">Objectives</h1>
+<ol>
+<li>You will be asked to manage a dockerfile; be sure that build works well, because q2-q5 depends on it.<br>
+Put missing commands\parameters in the correct position, in order to avoid a broken build.<br>
+Test only build: do not create container or something else (it will be asked you in the next objectives)</li>
+<li>You will be asked to create\manage bash scripts that depends on q1 dockerfile.<br>
+Objective does not require you to launch script, but you can do that just to be sure that it works\</li>
+<li>It ask to manage a db image, using bash scripts</li>
+<li>It depend on q3.<br>
+It ask to manage an application image using bash scripts</li>
+<li>It depends on q1-q2.<br>
+It ask to apply tag, push image to a registry and save it to a tar file</li>
+<li>It ask to deploy a db using template and specific parameters</li>
+<li>It depends on q6.<br>
+It ask to deploy an application that works using db on q6</li>
+<li>It depends on q6-q7.<br>
+It ask to troubleshoot application that does not work very well</li>
+</ol>
+<p>Some additional tips:</p>
+<ul>
+<li>q1 to q5 require deep knowledge on podman tool</li>
+<li>q6 to q8 require deeè knowledge on oc tool</li>
+<li>if a command (from cli or bash scripts) need to manage a file, it needs file itself in the same workin folder, so be sure to move files where required</li>
+</ul>
 
 		</section>
 
@@ -68,7 +134,7 @@
 			<nav class="nav tags">
 				<ul class="tags">
 					
-					<li><a href="/tags/redhat">RedHat</a></li>
+					<li><a href="/tags/redhat">redhat</a></li>
 					
 				</ul>
 			</nav>
@@ -78,8 +144,8 @@
 	</article>
 </main>
 <footer>
-<hr><a class="soc" href="mailto://f.racano8@live.com" title="Mail"><i data-feather="mail"></i></a>|<a class="soc" href="https://www.linkedin.com/in/francescoracano/" title="Linkedin"><i data-feather="linkedin"></i></a>|<a class="soc"><img src="https://visitor-badge.glitch.me/badge?page_id=https%3a%2f%2fwww.altf4.space%2fposts%2f10%2f"/></a>
-</footer>
+<hr>
+<a class="soc"><img src="https://visitor-badge.glitch.me/badge?page_id=https%3a%2f%2fwww.altf4.space%2fposts%2f10%2f" style="margin-left:0;margin-right:0;"/></a><a class="soc" href="mailto://f.racano8@live.com" title="Mail"><i data-feather="mail"></i></a>|<a class="soc" href="https://www.linkedin.com/in/francescoracano/" title="Linkedin"><i data-feather="linkedin"></i></a>|</footer>
 
 
 <script>
