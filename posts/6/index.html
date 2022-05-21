@@ -22,7 +22,7 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
 
 	
-	<link rel="stylesheet" type="text/css" media="screen" href="https://www.altf4.space/css/main.c9aa7fb04793ba41afc1e3f8951f4955b667405ec41a28cfa48ed8247f0377c8.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://www.altf4.space/css/main.75bdd21ae57e0bc54031c0eafe7c5fe317918adb2c061f0e68601f018ace629e.css" />
 		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://www.altf4.space/css/dark.19e529487c43ab9144c2dd05df52bec5c2aa9854b7363c8db012510b4dfd80ed.css"  disabled />
 	
 	
@@ -69,8 +69,8 @@ My notes are organized into a maxi bullet list: fewer words are used, in order t
 <pre><code>This notes are not intended to replace official courses and books
 </code></pre>
 <hr>
-<h2 id="architecture">Architecture</h2>
- <img src="/images/arch.png"> 
+<h1 id="architecture">Architecture</h1>
+ <img src="/images/arch.png" width="90%"> 
 <ul>
 <li>NSX-T works using 3 layer Planes
 <ul>
@@ -80,7 +80,7 @@ My notes are organized into a maxi bullet list: fewer words are used, in order t
 </ul>
 </li>
 </ul>
-<h2 id="management-plane">Management Plane</h2>
+<h1 id="management-plane">Management Plane</h1>
 <ul>
 <li>It is responsible for maintaining user configuration, handling user queries,  and  forming operational tasks on all management, control, and data plane nodes</li>
 <li>Mgmt and Control plane reside on the management cluster</li>
@@ -91,7 +91,7 @@ My notes are organized into a maxi bullet list: fewer words are used, in order t
 </ul>
 </li>
 </ul>
-<p><strong>Components Type</strong></p>
+<h2 id="components-type">Components Type</h2>
 <ul>
 <li>Hypervisor transport nodes
 <ul>
@@ -111,7 +111,7 @@ My notes are organized into a maxi bullet list: fewer words are used, in order t
 </ul>
 </li>
 </ul>
-<p><strong>NSX Manager Appliance</strong></p>
+<h2 id="nsx-manager-appliance">NSX Manager Appliance</h2>
 <ul>
 <li>provides the (GUI) and the REST APIs for creating, configuring, and monitoring NSX-T Data Center components</li>
 <li>How many VMs?
@@ -212,7 +212,7 @@ My notes are organized into a maxi bullet list: fewer words are used, in order t
 </ul>
 </li>
 </ul>
-<h2 id="control-plane">Control Plane</h2>
+<h1 id="control-plane">Control Plane</h1>
 <ul>
 <li>Compute the runtime state of the system based on configuration from the management plane</li>
 <li>Propagate topology information</li>
@@ -239,7 +239,7 @@ My notes are organized into a maxi bullet list: fewer words are used, in order t
 </ul>
 </li>
 </ul>
-<h2 id="data-plane">Data Plane</h2>
+<h1 id="data-plane">Data Plane</h1>
 <ul>
 <li>Data plane resides on transport node
 <ul>
@@ -249,8 +249,8 @@ My notes are organized into a maxi bullet list: fewer words are used, in order t
 </ul>
 </li>
 </ul>
-<p><strong>Node Type</strong><br>
- <img src="/images/node.png" width="90%" > </p>
+<h2 id="node-type">Node Type</h2>
+ <img src="/images/node.png" width="90%" > 
 <ul>
 <li>(Hypervisor) Transport Node
 <ul>
@@ -264,8 +264,8 @@ My notes are organized into a maxi bullet list: fewer words are used, in order t
 </ul>
 </li>
 </ul>
-<p><strong>Transport Node Architecture</strong><br>
- <img src="/images/transport.png" width="60%" > </p>
+<h2 id="transport-node-architecture">Transport Node Architecture</h2>
+ <img src="/images/transport.png" width="50%" > 
 <ul>
 <li>Appliance Proxy Hub
 <ul>
@@ -317,7 +317,7 @@ They start with:
 </ul>
 </li>
 </ul>
-<p><strong>Virtual Switch Type</strong></p>
+<h2 id="virtual-switch-type">Virtual Switch Type</h2>
 <ul>
 <li>VDS
 <ul>
@@ -345,7 +345,7 @@ They start with:
 </ul>
 </li>
 </ul>
-<p><strong>Operational Mode Datapath</strong></p>
+<h2 id="operational-mode-datapath">Operational Mode Datapath</h2>
 <ul>
 <li><em>Standard Datapath</em>
 <ul>
@@ -365,7 +365,7 @@ They start with:
 </ul>
 </li>
 </ul>
-<p><strong>Transport Nodes Profile</strong></p>
+<h2 id="transport-nodes-profile">Transport Nodes Profile</h2>
 <ul>
 <li>It will be applied to an entire cluster in order to configure the hosts to be prepared for NSX-T Data center</li>
 <li>It define:
@@ -483,7 +483,7 @@ They start with:
 </ul>
 </li>
 </ul>
-<p><strong>Host Preparation</strong> (in order to became a transport node)</p>
+<h2 id="host-preparation-in-order-to-became-a-transport-node">Host Preparation (in order to became a transport node)</h2>
 <ul>
 <li>KVM
 <ul>

@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html><head>
+	<meta name="google-site-verification" content="a660g_SgI9qGFjSabNGHMuY1gPEMc44t1okRRp59gRM" />
+
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>VCP-NV 2022 Study Guide - Ep.5 - NSX-T Architecture - Alt_F4</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Logical Bridging - Security" />
+	<meta property="og:image" content=""/>
+	<meta property="og:title" content="VCP-NV 2022 Study Guide - Ep.5 - NSX-T Architecture" />
+<meta property="og:description" content="Logical Bridging - Security" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.altf4.space/posts/13/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-05-21T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-05-21T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="VCP-NV 2022 Study Guide - Ep.5 - NSX-T Architecture"/>
+<meta name="twitter:description" content="Logical Bridging - Security"/>
+<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@1,500&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="https://www.altf4.space/css/main.75bdd21ae57e0bc54031c0eafe7c5fe317918adb2c061f0e68601f018ace629e.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://www.altf4.space/css/dark.19e529487c43ab9144c2dd05df52bec5c2aa9854b7363c8db012510b4dfd80ed.css"  disabled />
+	
+	
+	
+</head>
+<body>
+        <div class="content"><header>
+	<div class="main">
+		<a href="https://www.altf4.space">Alt_F4</a>
+	</div>
+	<nav>
+		
+		<a href="/">Home</a>
+		
+		<a href="/posts">Blog</a>
+		
+		<a href="/about">About</a>
+		
+		<a href="/tags">Tags</a>
+		
+		| <a id="dark-mode-toggle" onclick="toggleTheme()" href=""></a>
+		<script src="https://www.altf4.space/js/themetoggle.js"></script>
+		
+	</nav>
+</header>
+
+<main>
+	<article>
+		<div class="title">
+			<h1 class="title">VCP-NV 2022 Study Guide - Ep.5 - NSX-T Architecture</h1>
+			<div class="meta">Published on May 21, 2022
+				
+			</div>
+			<div class="meta">Updated on May 21, 2022
+				
+			</div>
+		</div>
+		
+
+		<section class="body">
+			<p><em>5th episode with NSX-T 2V0-41.20 Exam Guide!</em></p>
+<p>I hope that these notes (similat to a study guide) can help guys to be ready for the exam and also go indeep on some topics that course never covered.<br>
+My notes are organized into a maxi bullet list: fewer words are used, in order to help memorize concept and useful things.</p>
+<pre><code>This notes are not intended to replace official courses and books
+</code></pre>
+<hr>
+<h1 id="logical-bridging">Logical Bridging</h1>
+<ul>
+<li>Provide a way to communicate L2 between overlay netowrks and physicla VLAN networks</li>
+<li>Useful when a migration from physical to virtual is needed</li>
+<li>Bridging feature is provided by SR as a stateful service</li>
+<li>Configuration
+<ul>
+<li>Bridge profile
+<ul>
+<li>It specify which edge nodes are involved in bridging</li>
+<li>They can be reused between different edge nodes</li>
+<li>It contains the vlan where you want to bridge</li>
+</ul>
+</li>
+<li>Bridge-backend segment
+<ul>
+<li>part of an overlay transport zone</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+ <img src="/images/bridging.png" width="70%" > 
+<h1 id="security">Security</h1>
+<h2 id="distributed-intrusion-detection-system-dids">Distributed Intrusion Detection system (dIDS)</h2>
+<ul>
+<li>consists of multiple Intrusion Detection Systems (IDS)</li>
+<li>identify security vulnerabilities in the workloads</li>
+<li>quarantine and increase the security based on the detected vulnerabilities</li>
+</ul>
+<h2 id="policy-types">Policy Types</h2>
+<ul>
+<li>FW
+<ul>
+<li>Policies
+<ul>
+<li>Distributed firewall policies</li>
+<li>Gateway policies</li>
+</ul>
+</li>
+<li>Rules type
+<ul>
+<li>Stateful FW rules
+<ul>
+<li>analyze traffic from end to end. FW is always consulted for every packet, to validate the state and sequence numbers.
+<ul>
+<li>it works better to identify unauthorized accesses</li>
+<li>slow procedures</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Stateless FW rules
+<ul>
+<li>analyze traffic. That&rsquo;s all. On TCP\UDP after first packet the others packets are always allowed, just because the FW see in old cached traffic packets
+<ul>
+<li>works bad</li>
+<li>very fast for heavy traffic</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Service Insertion
+<ul>
+<li>Endpoint policies</li>
+<li>Network introspection policies</li>
+</ul>
+</li>
+<li>Distributed IDS policies</li>
+</ul>
+<h2 id="firewall-types">Firewall Types</h2>
+<ul>
+<li><strong>Distributed Firewall (DFW)</strong>
+ <img src="/images/dfw.png" width="40%" > 
+<ul>
+<li>East-West</li>
+<li>micro-segmentation
+<ul>
+<li>to provide zero trust security (The aim is to block external attackers)</li>
+</ul>
+</li>
+<li>Deployment
+<ul>
+<li>is programmed at kernel level (on the hypervisor) and then pushed into vNIC VM
+<ul>
+<li>multiple hypervisor types supported</li>
+</ul>
+</li>
+<li>Distributed between all transport nodes</li>
+<li>Managed via NSX GUI</li>
+<li>Support vMotion (policies move with the vm)</li>
+<li>How it works???
+<ol>
+<li>Configure fw policies through the NSX UI</li>
+<li>These policies are processed by the policy role</li>
+<li>policies are pushed to the manager role</li>
+<li>The manager role forwards the DFW rule config to the central control plane (CCP)</li>
+<li>CCP forwards the configuration to the LCP (nsx-proxy) through the Appliance Proxy Hub (APH</li>
+<li>Transport nodes store the DFWl configuration and configure the data path accordingly</li>
+<li>The transport nodes send rule statistics and status to the NSX Manager. NSX Manager o Ill O Ill ESX/KVM</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>Rules can be grouped in different categories
+<ul>
+<li>emergency, infrastructure, ethernet, environment, application</li>
+</ul>
+</li>
+<li>FW Key concept
+<ul>
+<li>Firewall rule
+<ul>
+<li>set of instruction that say if a packet is allowed\denied
+<ul>
+<li>define where rule will be applied</li>
+<li>Scope
+<ul>
+<li>DWF (all VMs in the environment)</li>
+<li>groups</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Security Policy
+<ul>
+<li>collection of firewall rules (processed in top-to-bottom order) applied to east-west traffic</li>
+<li>can be configured to work in a certain period (hours)</li>
+<li>special settings
+<ul>
+<li>TCP strict: it drops all packets that are non-proceeded by 3 way handshake packets</li>
+<li>Stateful: firewall perform stateful packet inspection
+<ul>
+<li>packets that match active connection are passed ahead</li>
+<li>Packets that not match are processed by firewall rules</li>
+</ul>
+</li>
+<li>Locked: do not allow simultaneous modification on the policy</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Group
+<ul>
+<li>object grouped together
+<ul>
+<li>Used to define source, target, etc. (example: all web servers)</li>
+<li>Items can be added starting from names or IPs ecc</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Service
+<ul>
+<li>identify traffic type (to block or allow) = port and protocol</li>
+</ul>
+</li>
+<li>Context profile
+<ul>
+<li>used when DFW will be used to inspect packets based on L7 application information</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>If logging is enabled for firewall rules, you can look at the firewall packet logs to troubleshoot issues.<br>
+The log file is /var/log/dfwpktlogs.log for both ESXi and KVM hosts. 
+ <img src="/images/dfw_esxi.png" width="60%" > 
+ <img src="/images/dfw_kvm.png" width="60%" > </li>
+</ul>
+</li>
+<li><strong>Gateway Firewall</strong>
+ <img src="/images/gatewayfw.png" width="60%" > 
+<ul>
+<li>North-South</li>
+<li>Provide firewalling features on T0 and T1</li>
+<li>Used as perimeter firewall</li>
+<li>Can be used together with distributed firewall (independent)</li>
+<li>Support stateful and stateless rules</li>
+<li>Rules can be grouped in different categories
+<ul>
+<li>Emergency, System Pre Rules, Local Gateway, Auto Service, Default</li>
+</ul>
+</li>
+<li>Key concept
+<ul>
+<li>Policy
+<ul>
+<li>TCP Strict, Stateful, Locked</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Architecture
+<ol>
+<li>You configure gateway policies from the UI</li>
+<li>Gateway policies are processed by the policy role</li>
+<li>Gateway policies are pushed to NSX Manager, which validates and forwards them to the CCP</li>
+<li>The CCP distributes the firewall configuration through APH to the relevant edge nodes</li>
+<li>NSX-proxy receives the firewall configuration from the CCP and configures the edge datapath</li>
+<li>The Stats Exporter collects flow records from the data path and generates rule statistics</li>
+<li>NSX-proxy reports the firewall rules statistics and status to the management plane</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="tags">Tags</h2>
+<ul>
+<li>enforce security criteria</li>
+<li>use cases
+<ul>
+<li>Security</li>
+<li>Create grouping membership criteria</li>
+<li>Specify the firewall source and destination</li>
+</ul>
+</li>
+</ul>
+<h2 id="distributed-ids">Distributed IDS</h2>
+<ul>
+<li>NSX 3.0</li>
+<li>Protects east-west traffic</li>
+<li>L4 attacks detected</li>
+<li>Requirements
+<ul>
+<li>IDS components are part of host installation</li>
+<li>NSX needs Internet access</li>
+</ul>
+</li>
+<li>IDS profile
+<ul>
+<li>Define IDS signature that are included or excluded from detection</li>
+</ul>
+</li>
+<li>IDS policy
+<ul>
+<li>Group of IDS rules</li>
+</ul>
+</li>
+<li>Monitor IDS events
+<ul>
+<li>security – east west secuirty – distributed IDS - events</li>
+</ul>
+</li>
+</ul>
+<h2 id="url-analysis">URL analysis</h2>
+<ul>
+<li>Work on north south traffic</li>
+<li>Monitor access to external websites</li>
+<li>Requirements
+<ul>
+<li>URL analysis enabled at edge cluster level
+<ul>
+<li>Security – North South security – url analysis- settings</li>
+</ul>
+</li>
+<li>NSX edge nodes require internet access</li>
+<li>A layer 7 firewall rule must be configurued on T1 uplink in order to caputer traffic</li>
+</ul>
+</li>
+<li>More 80 categories</li>
+<li>Each URL has a score reputation</li>
+<li>Webroot
+<ul>
+<li>Third party managed service</li>
+<li>external repository that include URL and categories</li>
+</ul>
+</li>
+<li>Cloud Service
+<ul>
+<li>Managed by VMware</li>
+<li>Retains reputation from Webroot and use them for NSX environment</li>
+</ul>
+</li>
+<li>Architecture
+ <img src="/images/url.png" width="50%" > </li>
+</ul>
+<h2 id="service-insertion">Service Insertion</h2>
+<ul>
+<li>Additional 3th party security features not supported by NSX-T
+<ul>
+<li><strong>Network Introspection</strong>
+<ul>
+<li>External insertion</li>
+<li>3th party IDS, IPS, next-gen FW</li>
+<li>Prerequisites
+<ul>
+<li>Partners must register services with NSX-T Data Center (via API call)</li>
+<li>ESXi clusters must be prepared as NSX-T Data Center transport nodes (by applying transport node profiles)</li>
+<li>Service VM (SVM) are only supported on ESXi hosts (no KVM)</li>
+</ul>
+</li>
+<li>Types
+<ul>
+<li><strong>North-South</strong>
+<ul>
+<li>SVM will be deployed close to edge node</li>
+<li>Inspection done on T1-T0 uplinks
+ <img src="/images/north.png" width="60%" > </li>
+</ul>
+</li>
+<li><strong>East-West</strong>
+<ul>
+<li>SVM deployed on transport node or on service cluster</li>
+<li>Insertion done at VM vNIC
+ <img src="/images/south.png" width="60%" > </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Configuration Steps
+<ol>
+<li>Service Registration: Service registration makes a service available in the catalog.</li>
+<li>Service Deployment: Deploy an instance of a registered service.</li>
+<li>Service Consumption: Use services in a service chain and redirect traffic.</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><strong>Endpoint Protection</strong>
+<ul>
+<li>Internal insertion
+<ul>
+<li>In-VM protection</li>
+</ul>
+</li>
+<li>analyze both OS and data</li>
+<li>Endpoint component installed on ESXi (not on single vm)</li>
+<li>NSX-T automatically install endpoint protection and SVM on the host
+<ul>
+<li>When a new VM is added, security policies are applied (then they follow the VM when it migrate)</li>
+<li>For SVMs deployed on compute hosts, an SVM does not need to be installed on every host.<br>
+Some customers prefer to deploy the partner SVM on each host to achieve the least amount of traffic hair-pinning. 
+When the partner SVM is deployed in a service cluster, traffic is sent from the compute hosts across the overlay to the hosts in the service cluster.
+<ul>
+<li>Traffic hair-pinning
+<ul>
+<li>when using a network virtualized environment there can be some useless and complicated path\ways to make possible packet flow. 
+To avoid that with NSX a DR has been deployed on every host (to avoid that a packet will flow outside the host itself when source\target are attacched to the same segment). The same behavior can be applied to SVM VM</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+		</section>
+
+		<div class="post-tags">
+			
+			
+			<nav class="nav tags">
+				<ul class="tags">
+					
+					<li><a href="/tags/nsx-t">NSX-T</a></li>
+					
+				</ul>
+			</nav>
+			
+			
+		</div>
+	</article>
+</main>
+<footer>
+<hr>
+<a class="soc"><img src="https://visitor-badge.glitch.me/badge?page_id=https%3a%2f%2fwww.altf4.space%2fposts%2f13%2f" style="margin-left:0;margin-right:0;"/></a><a class="soc" href="mailto://f.racano8@live.com" title="Mail"><i data-feather="mail"></i></a>|<a class="soc" href="https://www.linkedin.com/in/francescoracano/" title="Linkedin"><i data-feather="linkedin"></i></a>|</footer>
+
+
+<script>
+      feather.replace()
+</script></div>
+    </body>
+</html>
