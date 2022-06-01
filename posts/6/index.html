@@ -3,7 +3,7 @@
 	<meta name="google-site-verification" content="a660g_SgI9qGFjSabNGHMuY1gPEMc44t1okRRp59gRM" />
 
 	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>VCP-NV 2022 Study Guide - Ep.2 - NSX-T - Alt_F4</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>VCP-NV 2022 Study Guide - Ep.2 - NSX-T - ALT_F4</title><meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Management, Control e Data Plane" />
 	<meta property="og:image" content=""/>
 	<meta property="og:title" content="VCP-NV 2022 Study Guide - Ep.2 - NSX-T" />
@@ -31,7 +31,7 @@
 <body>
         <div class="content"><header>
 	<div class="main">
-		<a href="https://www.altf4.space">Alt_F4</a>
+		<a href="https://www.altf4.space">ALT_F4</a>
 	</div>
 	<nav>
 		
@@ -61,15 +61,25 @@
 			</div>
 		</div>
 		
-
+		<aside>
+			<nav id="TableOfContents">
+  <ul>
+    <li><a href="#architecture">Architecture</a></li>
+    <li><a href="#management-plane">Management Plane</a></li>
+    <li><a href="#control-plane">Control Plane</a></li>
+    <li><a href="#data-plane">Data Plane</a></li>
+  </ul>
+</nav>
+		</aside>
 		<section class="body">
 			<p><em>2th episode with NSX-T 2V0-41.20 Exam Guide!</em></p>
-<p>I hope that these notes (similat to a study guide) can help guys to be ready for the exam and also go indeep on some topics that course never covered.<br>
+<p>I hope that these notes can help you guys to be ready for the exam and also go indeep on some topics that course never covered.<br>
 My notes are organized into a maxi bullet list: fewer words are used, in order to help memorize concept and useful things.</p>
+<p>Did you lost previous episodes or are u searching different topic? <strong>Check <a href="https://altf4.space/posts/3/">&ndash;&gt; HERE &lt;&mdash;</a></strong></p>
 <pre><code>This notes are not intended to replace official courses and books
 </code></pre>
 <hr>
-<h1 id="architecture">Architecture</h1>
+<h2 id="architecture">Architecture</h2>
  <img src="/images/arch.png" width="90%"> 
 <ul>
 <li>NSX-T works using 3 layer Planes
@@ -80,7 +90,7 @@ My notes are organized into a maxi bullet list: fewer words are used, in order t
 </ul>
 </li>
 </ul>
-<h1 id="management-plane">Management Plane</h1>
+<h2 id="management-plane">Management Plane</h2>
 <ul>
 <li>It is responsible for maintaining user configuration, handling user queries,  and  forming operational tasks on all management, control, and data plane nodes</li>
 <li>Mgmt and Control plane reside on the management cluster</li>
@@ -91,7 +101,7 @@ My notes are organized into a maxi bullet list: fewer words are used, in order t
 </ul>
 </li>
 </ul>
-<h2 id="components-type">Components Type</h2>
+<h3 id="components-type">Components Type</h3>
 <ul>
 <li>Hypervisor transport nodes
 <ul>
@@ -111,7 +121,7 @@ My notes are organized into a maxi bullet list: fewer words are used, in order t
 </ul>
 </li>
 </ul>
-<h2 id="nsx-manager-appliance">NSX Manager Appliance</h2>
+<h3 id="nsx-manager-appliance">NSX Manager Appliance</h3>
 <ul>
 <li>provides the (GUI) and the REST APIs for creating, configuring, and monitoring NSX-T Data Center components</li>
 <li>How many VMs?
@@ -212,7 +222,7 @@ My notes are organized into a maxi bullet list: fewer words are used, in order t
 </ul>
 </li>
 </ul>
-<h1 id="control-plane">Control Plane</h1>
+<h2 id="control-plane">Control Plane</h2>
 <ul>
 <li>Compute the runtime state of the system based on configuration from the management plane</li>
 <li>Propagate topology information</li>
@@ -239,7 +249,7 @@ My notes are organized into a maxi bullet list: fewer words are used, in order t
 </ul>
 </li>
 </ul>
-<h1 id="data-plane">Data Plane</h1>
+<h2 id="data-plane">Data Plane</h2>
 <ul>
 <li>Data plane resides on transport node
 <ul>
@@ -249,7 +259,7 @@ My notes are organized into a maxi bullet list: fewer words are used, in order t
 </ul>
 </li>
 </ul>
-<h2 id="node-type">Node Type</h2>
+<h3 id="node-type">Node Type</h3>
  <img src="/images/node.png" width="90%" > 
 <ul>
 <li>(Hypervisor) Transport Node
@@ -264,7 +274,7 @@ My notes are organized into a maxi bullet list: fewer words are used, in order t
 </ul>
 </li>
 </ul>
-<h2 id="transport-node-architecture">Transport Node Architecture</h2>
+<h3 id="transport-node-architecture">Transport Node Architecture</h3>
  <img src="/images/transport.png" width="50%" > 
 <ul>
 <li>Appliance Proxy Hub
@@ -317,7 +327,7 @@ They start with:
 </ul>
 </li>
 </ul>
-<h2 id="virtual-switch-type">Virtual Switch Type</h2>
+<h3 id="virtual-switch-type">Virtual Switch Type</h3>
 <ul>
 <li>VDS
 <ul>
@@ -345,7 +355,7 @@ They start with:
 </ul>
 </li>
 </ul>
-<h2 id="operational-mode-datapath">Operational Mode Datapath</h2>
+<h3 id="operational-mode-datapath">Operational Mode Datapath</h3>
 <ul>
 <li><em>Standard Datapath</em>
 <ul>
@@ -365,7 +375,7 @@ They start with:
 </ul>
 </li>
 </ul>
-<h2 id="transport-nodes-profile">Transport Nodes Profile</h2>
+<h3 id="transport-nodes-profile">Transport Nodes Profile</h3>
 <ul>
 <li>It will be applied to an entire cluster in order to configure the hosts to be prepared for NSX-T Data center</li>
 <li>It define:
@@ -483,7 +493,7 @@ They start with:
 </ul>
 </li>
 </ul>
-<h2 id="host-preparation-in-order-to-became-a-transport-node">Host Preparation (in order to became a transport node)</h2>
+<h3 id="host-preparation-in-order-to-became-a-transport-node">Host Preparation (in order to became a transport node)</h3>
 <ul>
 <li>KVM
 <ul>
@@ -505,7 +515,7 @@ They start with:
 </ul>
 
 		</section>
-
+		
 		<div class="post-tags">
 			
 			

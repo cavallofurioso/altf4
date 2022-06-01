@@ -3,7 +3,7 @@
 	<meta name="google-site-verification" content="a660g_SgI9qGFjSabNGHMuY1gPEMc44t1okRRp59gRM" />
 
 	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>VCP-NV 2022 Study Guide - Ep.5 - NSX-T - Alt_F4</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>VCP-NV 2022 Study Guide - Ep.5 - NSX-T - ALT_F4</title><meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Logical Bridging - Security" />
 	<meta property="og:image" content=""/>
 	<meta property="og:title" content="VCP-NV 2022 Study Guide - Ep.5 - NSX-T" />
@@ -31,7 +31,7 @@
 <body>
         <div class="content"><header>
 	<div class="main">
-		<a href="https://www.altf4.space">Alt_F4</a>
+		<a href="https://www.altf4.space">ALT_F4</a>
 	</div>
 	<nav>
 		
@@ -61,15 +61,23 @@
 			</div>
 		</div>
 		
-
+		<aside>
+			<nav id="TableOfContents">
+  <ul>
+    <li><a href="#logical-bridging">Logical Bridging</a></li>
+    <li><a href="#security">Security</a></li>
+  </ul>
+</nav>
+		</aside>
 		<section class="body">
 			<p><em>5th episode with NSX-T 2V0-41.20 Exam Guide!</em></p>
-<p>I hope that these notes (similat to a study guide) can help guys to be ready for the exam and also go indeep on some topics that course never covered.<br>
+<p>I hope that these notes can help you guys to be ready for the exam and also go indeep on some topics that course never covered.<br>
 My notes are organized into a maxi bullet list: fewer words are used, in order to help memorize concept and useful things.</p>
+<p>Did you lost previous episodes or are u searching different topic? <strong>Check <a href="https://altf4.space/posts/3/">&ndash;&gt; HERE &lt;&mdash;</a></strong></p>
 <pre><code>This notes are not intended to replace official courses and books
 </code></pre>
 <hr>
-<h1 id="logical-bridging">Logical Bridging</h1>
+<h2 id="logical-bridging">Logical Bridging</h2>
 <ul>
 <li>Provide a way to communicate L2 between overlay netowrks and physicla VLAN networks</li>
 <li>Useful when a migration from physical to virtual is needed</li>
@@ -92,14 +100,14 @@ My notes are organized into a maxi bullet list: fewer words are used, in order t
 </li>
 </ul>
  <img src="/images/bridging.png" width="70%" > 
-<h1 id="security">Security</h1>
-<h2 id="distributed-intrusion-detection-system-dids">Distributed Intrusion Detection system (dIDS)</h2>
+<h2 id="security">Security</h2>
+<h3 id="distributed-intrusion-detection-system-dids">Distributed Intrusion Detection system (dIDS)</h3>
 <ul>
 <li>consists of multiple Intrusion Detection Systems (IDS)</li>
 <li>identify security vulnerabilities in the workloads</li>
 <li>quarantine and increase the security based on the detected vulnerabilities</li>
 </ul>
-<h2 id="policy-types">Policy Types</h2>
+<h3 id="policy-types">Policy Types</h3>
 <ul>
 <li>FW
 <ul>
@@ -143,7 +151,7 @@ My notes are organized into a maxi bullet list: fewer words are used, in order t
 </li>
 <li>Distributed IDS policies</li>
 </ul>
-<h2 id="firewall-types">Firewall Types</h2>
+<h3 id="firewall-types">Firewall Types</h3>
 <ul>
 <li><strong>Distributed Firewall (DFW)</strong>
  <img src="/images/dfw.png" width="40%" > 
@@ -281,7 +289,7 @@ The log file is /var/log/dfwpktlogs.log for both ESXi and KVM hosts.
 </ul>
 </li>
 </ul>
-<h2 id="tags">Tags</h2>
+<h3 id="tags">Tags</h3>
 <ul>
 <li>enforce security criteria</li>
 <li>use cases
@@ -292,7 +300,7 @@ The log file is /var/log/dfwpktlogs.log for both ESXi and KVM hosts.
 </ul>
 </li>
 </ul>
-<h2 id="distributed-ids">Distributed IDS</h2>
+<h3 id="distributed-ids">Distributed IDS</h3>
 <ul>
 <li>NSX 3.0</li>
 <li>Protects east-west traffic</li>
@@ -319,7 +327,7 @@ The log file is /var/log/dfwpktlogs.log for both ESXi and KVM hosts.
 </ul>
 </li>
 </ul>
-<h2 id="url-analysis">URL analysis</h2>
+<h3 id="url-analysis">URL analysis</h3>
 <ul>
 <li>Work on north south traffic</li>
 <li>Monitor access to external websites</li>
@@ -351,7 +359,7 @@ The log file is /var/log/dfwpktlogs.log for both ESXi and KVM hosts.
 <li>Architecture
  <img src="/images/url.png" width="50%" > </li>
 </ul>
-<h2 id="service-insertion">Service Insertion</h2>
+<h3 id="service-insertion">Service Insertion</h3>
 <ul>
 <li>Additional 3th party security features not supported by NSX-T
 <ul>
@@ -426,7 +434,7 @@ To avoid that with NSX a DR has been deployed on every host (to avoid that a pac
 </ul>
 
 		</section>
-
+		
 		<div class="post-tags">
 			
 			

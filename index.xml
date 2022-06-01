@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Alt_F4</title>
+    <title>ALT_F4</title>
     <link>https://www.altf4.space/</link>
-    <description>Recent content on Alt_F4</description>
+    <description>Recent content on ALT_F4</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 01 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://www.altf4.space/index.xml" rel="self" type="application/rss+xml" />
@@ -107,7 +107,7 @@
     </item>
     
     <item>
-      <title>VMware VCP-NV 2022 Certified</title>
+      <title>VMware VCP-NV 2022 - 2V0-41.20 NSX-T Study Guide</title>
       <link>https://www.altf4.space/posts/3/</link>
       <pubDate>Mon, 28 Feb 2022 00:00:00 +0000</pubDate>
       

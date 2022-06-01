@@ -3,7 +3,7 @@
 	<meta name="google-site-verification" content="a660g_SgI9qGFjSabNGHMuY1gPEMc44t1okRRp59gRM" />
 
 	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>VCP-NV 2022 Study Guide - Ep.4 - NSX-T - Alt_F4</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>VCP-NV 2022 Study Guide - Ep.4 - NSX-T - ALT_F4</title><meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="VRF-Lite - EVPN - Multicast" />
 	<meta property="og:image" content=""/>
 	<meta property="og:title" content="VCP-NV 2022 Study Guide - Ep.4 - NSX-T" />
@@ -31,7 +31,7 @@
 <body>
         <div class="content"><header>
 	<div class="main">
-		<a href="https://www.altf4.space">Alt_F4</a>
+		<a href="https://www.altf4.space">ALT_F4</a>
 	</div>
 	<nav>
 		
@@ -61,17 +61,26 @@
 			</div>
 		</div>
 		
-
+		<aside>
+			<nav id="TableOfContents">
+  <ul>
+    <li><a href="#vrf-lite">VRF-Lite</a></li>
+    <li><a href="#evpn">EVPN</a></li>
+    <li><a href="#multicast">Multicast</a></li>
+  </ul>
+</nav>
+		</aside>
 		<section class="body">
 			<p><em>4th episode with NSX-T 2V0-41.20 Exam Guide!</em></p>
-<p>I hope that these notes (similat to a study guide) can help guys to be ready for the exam and also go indeep on some topics that course never covered.<br>
+<p>I hope that these notes can help you guys to be ready for the exam and also go indeep on some topics that course never covered.<br>
 My notes are organized into a maxi bullet list: fewer words are used, in order to help memorize concept and useful things.</p>
+<p>Did you lost previous episodes or are u searching different topic? <strong>Check <a href="https://altf4.space/posts/3/">&ndash;&gt; HERE &lt;&mdash;</a></strong></p>
 <pre><code>This notes are not intended to replace official courses and books
 </code></pre>
 <hr>
-<h1 id="vrf-lite">VRF-Lite</h1>
+<h2 id="vrf-lite">VRF-Lite</h2>
  <img src="/images/vrflite.png" width="100%" > 
-<h2 id="what-is-a-vrf">What is a VRF?</h2>
+<h3 id="what-is-a-vrf">What is a VRF?</h3>
 <ul>
 <li>It allows you to logically use a single physical router into multiple routers (or routing instances)</li>
 <li>Each VRF instance has its own independent routing table and interfaces on the same router</li>
@@ -79,7 +88,7 @@ My notes are organized into a maxi bullet list: fewer words are used, in order t
 <li>Each network customers router advertisements are identified using Route Distinguisher field</li>
 <li>Each customer could have overlapping private address space where route uniqueness was maintained inside the Service Provider network by converting IPv4 route to VPNv4 route that is route+RD</li>
 </ul>
-<h2 id="vrf-on-nsx-t">VRF on NSX-T</h2>
+<h3 id="vrf-on-nsx-t">VRF on NSX-T</h3>
 <ul>
 <li>Before NSX-T 3.0
 <ul>
@@ -150,7 +159,7 @@ My notes are organized into a maxi bullet list: fewer words are used, in order t
 </ul>
 </li>
 </ul>
-<h1 id="evpn">EVPN</h1>
+<h2 id="evpn">EVPN</h2>
 <p> <img src="/images/evpn1.png" width="90%" > 
  <img src="/images/evpn2.png" width="90%" > </p>
 <ul>
@@ -203,7 +212,7 @@ My notes are organized into a maxi bullet list: fewer words are used, in order t
 </ul>
 </li>
 </ul>
-<h1 id="multicast">Multicast</h1>
+<h2 id="multicast">Multicast</h2>
  <img src="/images/multicast.png" width="90%" > 
 <ul>
 <li>Protocols
@@ -246,7 +255,7 @@ My notes are organized into a maxi bullet list: fewer words are used, in order t
 </ul>
 
 		</section>
-
+		
 		<div class="post-tags">
 			
 			

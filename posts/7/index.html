@@ -3,7 +3,7 @@
 	<meta name="google-site-verification" content="a660g_SgI9qGFjSabNGHMuY1gPEMc44t1okRRp59gRM" />
 
 	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>VCP-NV 2022 Study Guide - Ep.3 - NSX-T - Alt_F4</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>VCP-NV 2022 Study Guide - Ep.3 - NSX-T - ALT_F4</title><meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Logical Switching - Logical Routing" />
 	<meta property="og:image" content=""/>
 	<meta property="og:title" content="VCP-NV 2022 Study Guide - Ep.3 - NSX-T" />
@@ -31,7 +31,7 @@
 <body>
         <div class="content"><header>
 	<div class="main">
-		<a href="https://www.altf4.space">Alt_F4</a>
+		<a href="https://www.altf4.space">ALT_F4</a>
 	</div>
 	<nav>
 		
@@ -61,17 +61,25 @@
 			</div>
 		</div>
 		
-
+		<aside>
+			<nav id="TableOfContents">
+  <ul>
+    <li><a href="#logical-switching">Logical Switching</a></li>
+    <li><a href="#logical-routing">Logical Routing</a></li>
+  </ul>
+</nav>
+		</aside>
 		<section class="body">
 			<p><em>3th episode with NSX-T 2V0-41.20 Exam Guide!</em></p>
-<p>I hope that these notes (similat to a study guide) can help guys to be ready for the exam and also go indeep on some topics that course never covered.<br>
+<p>I hope that these notes can help you guys to be ready for the exam and also go indeep on some topics that course never covered.<br>
 My notes are organized into a maxi bullet list: fewer words are used, in order to help memorize concept and useful things.</p>
+<p>Did you lost previous episodes or are u searching different topic? <strong>Check <a href="https://altf4.space/posts/3/">&ndash;&gt; HERE &lt;&mdash;</a></strong></p>
 <pre><code>This notes are not intended to replace official courses and books
 </code></pre>
 <hr>
-<h1 id="logical-switching">Logical Switching</h1>
+<h2 id="logical-switching">Logical Switching</h2>
  <img src="/images/switching.png" width="90%" > 
-<h2 id="segment">Segment</h2>
+<h3 id="segment">Segment</h3>
 <ul>
 <li>2 broadcast domain</li>
 <li>Type
@@ -95,7 +103,7 @@ My notes are organized into a maxi bullet list: fewer words are used, in order t
 <li>A VDS overlay segment is exposed as distributed switch into vSphere
  <img src="/images/opaque.png" width="90%" > </li>
 </ul>
-<h2 id="tunneling">Tunneling</h2>
+<h3 id="tunneling">Tunneling</h3>
 <ul>
 <li>Overlay mode</li>
 <li>Not proprietary</li>
@@ -112,7 +120,7 @@ My notes are organized into a maxi bullet list: fewer words are used, in order t
 </li>
 <li>Hypervisor communicate each other between TEP tunnels</li>
 </ul>
-<h1 id="logical-routing">Logical Routing</h1>
+<h2 id="logical-routing">Logical Routing</h2>
  <img src="/images/routing1.png" width="90%" > 
 <p><strong>Tier topology</strong></p>
 <ul>
@@ -131,7 +139,7 @@ My notes are organized into a maxi bullet list: fewer words are used, in order t
  <img src="/images/multi.png" width="90%" > </p>
 </li>
 </ul>
-<h2 id="nsx-edge-transport-node">NSX Edge (Transport) Node</h2>
+<h3 id="nsx-edge-transport-node">NSX Edge (Transport) Node</h3>
 <ul>
 <li>It&rsquo;s required if you want to deploy a tier-0 router or a tier-1 router with stateful services</li>
 <li>Requirements
@@ -209,7 +217,7 @@ My notes are organized into a maxi bullet list: fewer words are used, in order t
 <li>Separated routing table between mgmt and overlay traffic</li>
 <li>Offers DPDK-based vm for high performances!</li>
 </ul>
-<h2 id="gateway-components-both-on-t0-and-t1">Gateway components (both on T0 and T1)</h2>
+<h3 id="gateway-components-both-on-t0-and-t1">Gateway components (both on T0 and T1)</h3>
 <ul>
 <li><strong>DR</strong>
 <ul>
@@ -252,7 +260,7 @@ remain the same during vMotion.</li>
 </ul>
 </li>
 </ul>
-<h2 id="interfaces">Interfaces</h2>
+<h3 id="interfaces">Interfaces</h3>
 <ul>
 <li>External
 <ul>
@@ -286,7 +294,7 @@ remain the same during vMotion.</li>
 </ul>
 </li>
 </ul>
-<h2 id="services-type">Services Type</h2>
+<h3 id="services-type">Services Type</h3>
 <ul>
 <li>Stateful
 <ul>
@@ -303,7 +311,7 @@ remain the same during vMotion.</li>
 </ul>
 </li>
 </ul>
-<h2 id="gateway">Gateway</h2>
+<h3 id="gateway">Gateway</h3>
 <ul>
 <li><strong>Tier-0 Gateway</strong>
 <ul>
@@ -400,7 +408,7 @@ remain the same during vMotion.</li>
 </ul>
 </li>
 </ul>
-<h2 id="routing">Routing</h2>
+<h3 id="routing">Routing</h3>
 <ul>
 <li>No routing between T0 and T1
 <ul>
@@ -481,7 +489,7 @@ Different AS = eBGP. Equal AS = iBGP</li>
 </ul>
 </li>
 </ul>
-<h2 id="sr-services-ha">SR Services HA</h2>
+<h3 id="sr-services-ha">SR Services HA</h3>
 <ul>
 <li>on T0 and T1</li>
 <li>SR mode operation
@@ -520,7 +528,7 @@ Different AS = eBGP. Equal AS = iBGP</li>
 </ul>
 
 		</section>
-
+		
 		<div class="post-tags">
 			
 			

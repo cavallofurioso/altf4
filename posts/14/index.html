@@ -3,7 +3,7 @@
 	<meta name="google-site-verification" content="a660g_SgI9qGFjSabNGHMuY1gPEMc44t1okRRp59gRM" />
 
 	<meta charset="utf-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>VCP-NV 2022 Study Guide - Ep.6 - NSX-T - Alt_F4</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>VCP-NV 2022 Study Guide - Ep.6 - NSX-T - ALT_F4</title><meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Monitoring - Authentication/Authorization - Services - VPN - Federation" />
 	<meta property="og:image" content=""/>
 	<meta property="og:title" content="VCP-NV 2022 Study Guide - Ep.6 - NSX-T" />
@@ -31,7 +31,7 @@
 <body>
         <div class="content"><header>
 	<div class="main">
-		<a href="https://www.altf4.space">Alt_F4</a>
+		<a href="https://www.altf4.space">ALT_F4</a>
 	</div>
 	<nav>
 		
@@ -61,15 +61,27 @@
 			</div>
 		</div>
 		
-
+		<aside>
+			<nav id="TableOfContents">
+  <ul>
+    <li><a href="#monitoring">Monitoring</a></li>
+    <li><a href="#authentication--authorization">Authentication / Authorization</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#vpn">VPN</a></li>
+    <li><a href="#tools---traceflow">Tools - Traceflow</a></li>
+    <li><a href="#nsx-t-federation">NSX-T Federation</a></li>
+  </ul>
+</nav>
+		</aside>
 		<section class="body">
-			<p><em>5th episode with NSX-T 2V0-41.20 Exam Guide!</em></p>
-<p>I hope that these notes (similat to a study guide) can help guys to be ready for the exam and also go indeep on some topics that course never covered.<br>
+			<p><em>6th episode with NSX-T 2V0-41.20 Exam Guide!</em></p>
+<p>I hope that these notes can help you guys to be ready for the exam and also go indeep on some topics that course never covered.<br>
 My notes are organized into a maxi bullet list: fewer words are used, in order to help memorize concept and useful things.</p>
+<p>Did you lost previous episodes or are u searching different topic? <strong>Check <a href="https://altf4.space/posts/3/">&ndash;&gt; HERE &lt;&mdash;</a></strong></p>
 <pre><code>This notes are not intended to replace official courses and books
 </code></pre>
 <hr>
-<h1 id="monitoring">Monitoring</h1>
+<h2 id="monitoring">Monitoring</h2>
  <img src="/images/monitoring.png" width="70%" > 
 <ul>
 <li>Monitoring provides micro-segmentation recommendations</li>
@@ -107,8 +119,8 @@ My notes are organized into a maxi bullet list: fewer words are used, in order t
 </ul>
 </li>
 </ul>
-<h1 id="authentication--authorization">Authentication / Authorization</h1>
-<h2 id="vmware-identity-manager-vidm">VMware Identity Manager (vIDM)</h2>
+<h2 id="authentication--authorization">Authentication / Authorization</h2>
+<h3 id="vmware-identity-manager-vidm">VMware Identity Manager (vIDM)</h3>
 <ul>
 <li>Identity as a service (IDaaS) solution</li>
 <li>LDAP Multiple external solution integration (LDAP)</li>
@@ -136,7 +148,7 @@ Catalog – settings – remote app access – create client</li>
 </ol>
 </li>
 </ul>
-<h2 id="ldap">LDAP</h2>
+<h3 id="ldap">LDAP</h3>
  <img src="/images/ldap.png" width="50%" > 
 <ul>
 <li>protocol to manage distributed directory services (user, network infra, ecc)</li>
@@ -149,7 +161,7 @@ Catalog – settings – remote app access – create client</li>
 <li>Natively integrated</li>
 <li>Do not require vIDM deploy</li>
 </ul>
-<h2 id="rbac-role-based-access-control">RBAC (role-based access control)</h2>
+<h3 id="rbac-role-based-access-control">RBAC (role-based access control)</h3>
 <ul>
 <li>Different authentication policy between:
 <ul>
@@ -190,8 +202,8 @@ Catalog – settings – remote app access – create client</li>
 </ul>
 </li>
 </ul>
-<h1 id="services">Services</h1>
-<h2 id="nat">NAT</h2>
+<h2 id="services">Services</h2>
+<h3 id="nat">NAT</h3>
 <ul>
 <li>NSX-T doesn’t allow you to translate the destination when creating a SNAT rule</li>
 <li><strong>SNAT</strong>
@@ -230,7 +242,7 @@ Catalog – settings – remote app access – create client</li>
 </ul>
 </li>
 </ul>
-<h2 id="nat64">NAT64</h2>
+<h3 id="nat64">NAT64</h3>
 <ul>
 <li>it&rsquo;s a way to translate IP4 to ip6</li>
 <li>Useful for different IP addressing</li>
@@ -250,7 +262,7 @@ Catalog – settings – remote app access – create client</li>
 <li>Configuration: just add a NAT64 rule
  <img src="/images/nat64.png" width="90%" > </li>
 </ul>
-<h2 id="dhcp">DHCP</h2>
+<h3 id="dhcp">DHCP</h3>
 <ul>
 <li>DCHP server and DHCP relay server can be configured both on T1 and T0
 <ul>
@@ -276,7 +288,7 @@ Catalog – settings – remote app access – create client</li>
 </ol>
 </li>
 </ul>
-<h2 id="dns">DNS</h2>
+<h3 id="dns">DNS</h3>
 <ul>
 <li>Built-in DNS relay functionality
 <ul>
@@ -287,7 +299,7 @@ Catalog – settings – remote app access – create client</li>
 <li>Using cahcing it reduce load on DNS server 
  <img src="/images/dns.png" width="50%" > </li>
 </ul>
-<h2 id="load-balancer">Load Balancer</h2>
+<h3 id="load-balancer">Load Balancer</h3>
  <img src="/images/lb.png" width="60%" > 
 <ul>
 <li>LB Type
@@ -435,8 +447,8 @@ Catalog – settings – remote app access – create client</li>
 </ul>
 </li>
 </ul>
-<h1 id="vpn">VPN</h1>
-<h2 id="ipsec-vpn">IPSec VPN</h2>
+<h2 id="vpn">VPN</h2>
+<h3 id="ipsec-vpn">IPSec VPN</h3>
 <ul>
 <li>Deployment
 <ul>
@@ -502,7 +514,7 @@ Catalog – settings – remote app access – create client</li>
 </ol>
 </li>
 </ul>
-<h2 id="l2-vpn">L2 VPN</h2>
+<h3 id="l2-vpn">L2 VPN</h3>
 <ul>
 <li>Deployment
 <ul>
@@ -571,7 +583,7 @@ IMAGE</li>
 </ul>
 </li>
 </ul>
-<h1 id="tools---traceflow">Tools - Traceflow</h1>
+<h2 id="tools---traceflow">Tools - Traceflow</h2>
 <ul>
 <li>Allow to inject a packet into the network and monitor its flow across the network</li>
 <li>is not the same as a ping request/response that goes from guest-VM stack to guest-VM stack
@@ -599,7 +611,7 @@ IMAGE</li>
 <li>source\destination can be a logical switch port, logical router uplink port, CSP or DHCP port</li>
 <li>destination can be any device in the NSX overlay or in the underlay. However, you cannot select a destination that is north of an NSX Edge node.</li>
 </ul>
-<h1 id="nsx-t-federation">NSX-T Federation</h1>
+<h2 id="nsx-t-federation">NSX-T Federation</h2>
 <ul>
 <li>NSX-T stretched networking across multiple sites via Federation
 <ul>
@@ -630,7 +642,7 @@ IMAGE</li>
 </ul>
 
 		</section>
-
+		
 		<div class="post-tags">
 			
 			
