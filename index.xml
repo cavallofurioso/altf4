@@ -6,9 +6,18 @@
     <description>Recent content on Alt_F4</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 21 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://www.altf4.space/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 01 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://www.altf4.space/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>VCP-NV 2022 Study Guide - Ep.5 - NSX-T Architecture</title>
+      <title>VCP-NV 2022 Study Guide - Ep.6 - NSX-T</title>
+      <link>https://www.altf4.space/posts/14/</link>
+      <pubDate>Wed, 01 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.altf4.space/posts/14/</guid>
+      <description>Monitoring - Authentication/Authorization - Services - VPN - Federation</description>
+    </item>
+    
+    <item>
+      <title>VCP-NV 2022 Study Guide - Ep.5 - NSX-T</title>
       <link>https://www.altf4.space/posts/13/</link>
       <pubDate>Sat, 21 May 2022 00:00:00 +0000</pubDate>
       
@@ -53,7 +62,7 @@
     </item>
     
     <item>
-      <title>VCP-NV 2022 Study Guide - Ep.4 - NSX-T Architecture</title>
+      <title>VCP-NV 2022 Study Guide - Ep.4 - NSX-T</title>
       <link>https://www.altf4.space/posts/8/</link>
       <pubDate>Mon, 18 Apr 2022 00:00:00 +0000</pubDate>
       
@@ -62,7 +71,7 @@
     </item>
     
     <item>
-      <title>VCP-NV 2022 Study Guide - Ep.3 - NSX-T Architecture</title>
+      <title>VCP-NV 2022 Study Guide - Ep.3 - NSX-T</title>
       <link>https://www.altf4.space/posts/7/</link>
       <pubDate>Sun, 27 Mar 2022 00:00:00 +0000</pubDate>
       
@@ -71,7 +80,7 @@
     </item>
     
     <item>
-      <title>VCP-NV 2022 Study Guide - Ep.2 - NSX-T Architecture</title>
+      <title>VCP-NV 2022 Study Guide - Ep.2 - NSX-T</title>
       <link>https://www.altf4.space/posts/6/</link>
       <pubDate>Tue, 15 Mar 2022 00:00:00 +0000</pubDate>
       
@@ -89,7 +98,7 @@
     </item>
     
     <item>
-      <title>VCP-NV 2022 Study Guide - Ep.1 - Intro and Architecture</title>
+      <title>VCP-NV 2022 Study Guide - Ep.1 - NSX-T</title>
       <link>https://www.altf4.space/posts/4/</link>
       <pubDate>Sun, 06 Mar 2022 00:00:00 +0000</pubDate>
       
@@ -130,8 +139,7 @@
       <pubDate>Sat, 12 Feb 2022 00:00:00 +0000</pubDate>
       
       <guid>https://www.altf4.space/books/</guid>
-      <description>qui inserirò tutti i miei libri
-  aaa aaa  </description>
+      <description>   aaa aaa  </description>
     </item>
     
     <item>

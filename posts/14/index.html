@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html><head>
+	<meta name="google-site-verification" content="a660g_SgI9qGFjSabNGHMuY1gPEMc44t1okRRp59gRM" />
+
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>VCP-NV 2022 Study Guide - Ep.6 - NSX-T - Alt_F4</title><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Monitoring - Authentication/Authorization - Services - VPN - Federation" />
+	<meta property="og:image" content=""/>
+	<meta property="og:title" content="VCP-NV 2022 Study Guide - Ep.6 - NSX-T" />
+<meta property="og:description" content="Monitoring - Authentication/Authorization - Services - VPN - Federation" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.altf4.space/posts/14/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-06-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-06-01T00:00:00+00:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="VCP-NV 2022 Study Guide - Ep.6 - NSX-T"/>
+<meta name="twitter:description" content="Monitoring - Authentication/Authorization - Services - VPN - Federation"/>
+<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@1,500&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="https://www.altf4.space/css/main.c54d4b3dcb72aa88711198533b8acf99c809a71e79a83eb92c37550f96ecf32a.css" />
+		<link id="darkModeStyle" rel="stylesheet" type="text/css" href="https://www.altf4.space/css/dark.19e529487c43ab9144c2dd05df52bec5c2aa9854b7363c8db012510b4dfd80ed.css"  disabled />
+	
+	
+	
+</head>
+<body>
+        <div class="content"><header>
+	<div class="main">
+		<a href="https://www.altf4.space">Alt_F4</a>
+	</div>
+	<nav>
+		
+		<a href="/">Home</a>
+		
+		<a href="/posts">Blog</a>
+		
+		<a href="/about">About</a>
+		
+		<a href="/tags">Tags</a>
+		
+		| <a id="dark-mode-toggle" onclick="toggleTheme()" href=""></a>
+		<script src="https://www.altf4.space/js/themetoggle.js"></script>
+		
+	</nav>
+</header>
+
+<main>
+	<article>
+		<div class="title">
+			<h1 class="title">VCP-NV 2022 Study Guide - Ep.6 - NSX-T</h1>
+			<div class="meta">Published on Jun 1, 2022
+				
+			</div>
+			<div class="meta">Updated on Jun 1, 2022
+				
+			</div>
+		</div>
+		
+
+		<section class="body">
+			<p><em>5th episode with NSX-T 2V0-41.20 Exam Guide!</em></p>
+<p>I hope that these notes (similat to a study guide) can help guys to be ready for the exam and also go indeep on some topics that course never covered.<br>
+My notes are organized into a maxi bullet list: fewer words are used, in order to help memorize concept and useful things.</p>
+<pre><code>This notes are not intended to replace official courses and books
+</code></pre>
+<hr>
+<h1 id="monitoring">Monitoring</h1>
+ <img src="/images/monitoring.png" width="70%" > 
+<ul>
+<li>Monitoring provides micro-segmentation recommendations</li>
+<li>NSX Intelligence
+<ul>
+<li>Add-on to NSX-T</li>
+<li>It works complementary to Network Insight</li>
+<li>Requirements
+<ul>
+<li>NSX Intelligence must be deployed on a host managed via vCenter</li>
+<li>Static IP</li>
+<li>NSX-T Enterprise Plus license</li>
+<li>Enterprise Administrator role</li>
+</ul>
+</li>
+<li>Monitor flow etc.</li>
+<li>Slim and Large size deployment
+<ul>
+<li>Plan &amp; troubleshoot – discover e plan – discover e take action</li>
+</ul>
+</li>
+<li>NSX Recommendation
+<ul>
+<li>They define which VM or group will be data analyzed</li>
+<li>Can be defined
+<ul>
+<li>Scope (Up to 100 VM or 1 security group)</li>
+<li>Recommendation (object-based – IP-based)</li>
+<li>Time Range 
+ <img src="/images/alarm.png" width="50%" > </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="authentication--authorization">Authentication / Authorization</h1>
+<h2 id="vmware-identity-manager-vidm">VMware Identity Manager (vIDM)</h2>
+<ul>
+<li>Identity as a service (IDaaS) solution</li>
+<li>LDAP Multiple external solution integration (LDAP)</li>
+<li>Requirements
+<ol>
+<li>Deploy from OVF</li>
+<li>vm and host NTP synchronization</li>
+<li>Initial identity manager configuration appliance
+<ul>
+<li>Before integrate NSX manager into Identity manager, NSX manager must be register as a trusted OAuth client in vIDM 
+Catalog – settings – remote app access – create client</li>
+</ul>
+</li>
+<li>Obtain MSX manager sha-256 thumbprint</li>
+<li>Enable nsx identity manager integration from NSX UI
+<ul>
+<li>System – settings – user and roles</li>
+</ul>
+</li>
+<li>Now NSX UI login page will redirect you to identity manager login page
+<ul>
+<li>Bypass login via vIDM: https://fqdn/login.jsp?local=true</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="ldap">LDAP</h2>
+ <img src="/images/ldap.png" width="50%" > 
+<ul>
+<li>protocol to manage distributed directory services (user, network infra, ecc)</li>
+<li>NSXT-T support
+<ul>
+<li>ActiveDirectory over LDAP</li>
+<li>OpenLDAP</li>
+</ul>
+</li>
+<li>Natively integrated</li>
+<li>Do not require vIDM deploy</li>
+</ul>
+<h2 id="rbac-role-based-access-control">RBAC (role-based access control)</h2>
+<ul>
+<li>Different authentication policy between:
+<ul>
+<li>Local users
+<ul>
+<li>NSX-T manager access via API, UI and cli</li>
+<li>Configured directly from CLI
+<ul>
+<li>Is preferred to have few users configured in this way (strong managing)</li>
+<li>By default there are admin and audit users</li>
+<li>commands</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>External users
+<ul>
+<li>User managed by Identity manager
+<ul>
+<li>NSX manager access via UI and CLI only</li>
+<li>Configured from identity manager console</li>
+</ul>
+</li>
+<li>LDAP user
+<ul>
+<li>NSX manager access via UI and CLI only</li>
+<li>Managed from active directory or OpenLDAP</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Roles available in NSX-T
+<ul>
+<li>Every role can be assigned to local or external users 
+ <img src="/images/roles.png" width="90%" > </li>
+</ul>
+</li>
+</ul>
+<h1 id="services">Services</h1>
+<h2 id="nat">NAT</h2>
+<ul>
+<li>NSX-T doesn’t allow you to translate the destination when creating a SNAT rule</li>
+<li><strong>SNAT</strong>
+<ul>
+<li>Source NAT</li>
+<li>when you want to translate IP inside your NSX-T domain to an IP address that is outside</li>
+<li>Can be disabled with a NO SNAT rule</li>
+<li>T0-T1 in active-standby</li>
+</ul>
+</li>
+<li><strong>DNAT</strong>
+<ul>
+<li>Destination NAT</li>
+<li>When we what to translate an outside ip to internal ip (example: server exposed on the web that resides on internal vms)</li>
+<li>Can be disabled with a NO DNAT rule</li>
+<li>T0-T1 in active-standby</li>
+</ul>
+</li>
+<li><strong>Reflexive NAT (or Stateless NAT)</strong>
+<ul>
+<li>only T0 in active-active mode
+<ul>
+<li>In this mode SNAT cannot be configured, because asymmetrical paths can cause issues</li>
+</ul>
+</li>
+<li>It&rsquo;s basically one-to-one mapping of IP addresses
+<ul>
+<li>Each private IP addresses has its own public address</li>
+<li>a X IPs source addresses  &ndash;require&ndash;&gt; X IPs destination addresses
+<ul>
+<li>IP translation is sequential</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="nat64">NAT64</h2>
+<ul>
+<li>it&rsquo;s a way to translate IP4 to ip6</li>
+<li>Useful for different IP addressing</li>
+<li>Requirements
+<ul>
+<li>T0 with
+<ul>
+<li>Uplink interface in IPv6 network</li>
+<li>Downlink int in Ipv4 network</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>TCP and UDP only supported (the other are discarded!)</li>
+<li>No broadcast</li>
+<li>No multicast</li>
+<li>Configuration: just add a NAT64 rule
+ <img src="/images/nat64.png" width="90%" > </li>
+</ul>
+<h2 id="dhcp">DHCP</h2>
+<ul>
+<li>DCHP server and DHCP relay server can be configured both on T1 and T0
+<ul>
+<li>DHCP relay: when DHCP request are sent to an external DHCP server that not resides in the same network</li>
+</ul>
+</li>
+<li>DHCP sever will be created for a segment and a pool</li>
+<li>Multiple dhcp servers can be created</li>
+<li>DHCP server profile
+<ul>
+<li>Define server ip address, lease time, edge cluster</li>
+</ul>
+</li>
+<li>To configure a T1 as a DHCP server (or relay), we need to change the type server on T1</li>
+<li>Configuration Steps
+<ol>
+<li>Create a DHCP server profile</li>
+<li>Configure Tier-I or Tier-O Gateway with DHCP server profile</li>
+<li>Create segment and configure DHCP IP address range</li>
+<li>Attach VM to the segment</li>
+<li>Configure VM VIFs to acquire DHCP IP address
+ <img src="/images/dhcp_1.png" width="50%" > </li>
+</ol>
+</li>
+</ul>
+<h2 id="dns">DNS</h2>
+<ul>
+<li>Built-in DNS relay functionality
+<ul>
+<li>DNS forwarder: it can also cached previous resolution until TTL expire</li>
+</ul>
+</li>
+<li>Can be configured on T1 and T0</li>
+<li>Using cahcing it reduce load on DNS server 
+ <img src="/images/dns.png" width="50%" > </li>
+</ul>
+<h2 id="load-balancer">Load Balancer</h2>
+ <img src="/images/lb.png" width="60%" > 
+<ul>
+<li>LB Type
+<ul>
+<li>Layer 4 LB
+<ul>
+<li>TCP ad UDP</li>
+</ul>
+</li>
+<li>Layer 7 LB
+<ul>
+<li>content-based load balancer that supports HTTP, HTTPS</li>
+<li>Enabled for &ldquo;url manipulation&rdquo;</li>
+<li>SSL Modes
+<ul>
+<li>SSL offload
+<ul>
+<li>HTTPS: client – LB on T1</li>
+<li>HTTP: LB on T1 - Server</li>
+</ul>
+</li>
+<li>SSL end-to-end
+<ul>
+<li>HTTPS used everywhere</li>
+</ul>
+</li>
+<li>SSL passthrough
+<ul>
+<li>Requires a dedicated load balancer rule (configurable on LB itself)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>LB Configuration
+<ul>
+<li>only on T1 in active-standby</li>
+<li>Parameter
+<ul>
+<li><strong>Virtual server</strong>
+<ul>
+<li>combination of IP, port, protocol, profile</li>
+<li>define virtual server details
+<ul>
+<li><strong>Profile</strong>
+<ul>
+<li>Define characteristics of virtual servers</li>
+<li>1 or more virtual server can use profiles</li>
+<li>Parameters
+<ul>
+<li>Application
+<ul>
+<li>define how virtual server process the traffic</li>
+</ul>
+</li>
+<li>Persistence
+<ul>
+<li>in case of stateful application, it redirects all request to the same backend server</li>
+</ul>
+</li>
+<li>SSL
+<ul>
+<li>define SSL protocol and cipher to be used</li>
+<li>type
+<ul>
+<li>Client SSL Profile (client - LB)</li>
+<li>Server SSL Profile (LB - Server)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Server pool</strong>
+<ul>
+<li>define backend server details</li>
+<li>User monitors</li>
+<li>Virtual server can include 1 or more server pool</li>
+</ul>
+</li>
+<li><strong>Monitor</strong>
+<ul>
+<li>Check server status</li>
+<li>Type
+<ul>
+<li>Active monitor
+<ul>
+<li>check if a server is available</li>
+</ul>
+</li>
+<li>Passive monitor
+<ul>
+<li>check if there are issues when client try to connect to it</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>LB Deployments
+<ul>
+<li><strong>Inline</strong>
+<ul>
+<li>LB  on the same way traffic of servers</li>
+<li>Transparent LB</li>
+<li>Clients must resides on a different T1</li>
+<li>SNAT not required
+ <img src="/images/inline.png" width="60%" > </li>
+</ul>
+</li>
+<li><strong>One Arm</strong>
+<ul>
+<li>Server and client can be everywhere</li>
+<li>SNAT required
+<ul>
+<li>Automap
+<ul>
+<li>Use the LB IP to do SNAT</li>
+</ul>
+</li>
+<li>Ip Pool
+<ul>
+<li>requires pool configured to do static nat</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>LB can be located everywhere
+ <img src="/images/onearm.png" width="60%" > </li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="vpn">VPN</h1>
+<h2 id="ipsec-vpn">IPSec VPN</h2>
+<ul>
+<li>Deployment
+<ul>
+<li>Protected networks must be segments created through NSX UI</li>
+<li>Segments can be connected to T0 or T1 (support both)</li>
+<li>Tenants on different sites and with overlapping networks can use NAT on T0</li>
+<li>Requires edge nodes</li>
+</ul>
+</li>
+<li>Modes
+<ul>
+<li>Transport mode
+<ul>
+<li>Preserve original ip header</li>
+<li>Used for remote-access vpn</li>
+</ul>
+</li>
+<li>Tunnel mode
+<ul>
+<li>Encapsulate entire IP header into a new header</li>
+<li>Used for site-to-site vpn</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Support certificate-based authentication</li>
+<li>DPD (dead peer detection)
+<ul>
+<li>Specific number of seconds on which a peer is classified as dead</li>
+</ul>
+</li>
+<li>IPSec session type
+<ul>
+<li>Policy-based
+<ul>
+<li>Determine the Ipsec-traffic that pass through the vpn tunnel</li>
+<li>Static config: it must be changed when network topology change</li>
+</ul>
+</li>
+<li>Route-based
+<ul>
+<li>A bit more dynamic</li>
+<li>All local and remote networks are learned from BGP routes
+<ul>
+<li>Routes are leaned via a dedicated interface called VTI (virtual tunnel Interface)</li>
+</ul>
+</li>
+<li>Tunnel redundancy supported</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Configuring IPSec
+<ol>
+<li>Create and enable an IPSec VPN service</li>
+<li>(Optional) Configure a DPD profile.</li>
+<li>(Optional) Configure an IKE profile.</li>
+<li>(Optional) Configure an IPSec profile.</li>
+<li>Add a local endpoint</li>
+<li>Configure an IPSec session:</li>
+<li>Configure route-based IPSec</li>
+<li>Configure policy-based IPSec</li>
+</ol>
+</li>
+</ul>
+<h2 id="l2-vpn">L2 VPN</h2>
+<ul>
+<li>Deployment
+<ul>
+<li>Configuration Steps
+<ol>
+<li>Configure vpn client</li>
+<li>Configure vpn client</li>
+<li>Configure vpn segment0</li>
+</ol>
+</li>
+<li>Supported on T0 and T1</li>
+<li>Segment can be connected to both gateway</li>
+</ul>
+</li>
+<li>Mode
+<ul>
+<li>Transport mode
+<ul>
+<li>GRE over IPsec</li>
+<li>Used for
+<ul>
+<li>extended network domain across different sites</li>
+<li>Enable vm mobility /vMotion, DR)</li>
+<li>Hybrid cloud cases</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Configurable via NSX UI</li>
+<li>Available only in NSX (so different sites all require NSX deployed on them!)</li>
+<li>Tunnel redundancy not supported</li>
+<li>Pre-shared key is the only available authentication method</li>
+<li>Peer code Base64-encoded
+<ul>
+<li>Make client configuration easy</li>
+</ul>
+</li>
+<li>Hub-and-spoke topology is supported
+<ul>
+<li>Make possible different sites to communicate via a central site (hub)</li>
+<li>Up to L2 VPn clients allowed</li>
+</ul>
+</li>
+<li>Scalability
+<ul>
+<li>L2 VPN client number depends on edge node size\type</li>
+<li>A edge node can manage only 1 L2 VPN client session at a time! 
+IMAGE</li>
+</ul>
+</li>
+<li>VPN Client
+<ul>
+<li>Autonomous Edge instance
+<ul>
+<li>Deployed via OVF n host not managed by NSX-T</li>
+</ul>
+</li>
+<li>Standalone Edge
+<ul>
+<li>Deployed\config in a environment not managed by NSX</li>
+</ul>
+</li>
+<li>Edge managed by NSX</li>
+</ul>
+</li>
+</ul>
+<h1 id="tools---traceflow">Tools - Traceflow</h1>
+<ul>
+<li>Allow to inject a packet into the network and monitor its flow across the network</li>
+<li>is not the same as a ping request/response that goes from guest-VM stack to guest-VM stack
+<ul>
+<li>Traceflow use a special &ldquo;marked packet&rdquo; and follow it as it traverses the overlay network</li>
+<li>Marked packet is never delivered to destination-VM</li>
+<li>For the above reason Traceflow also work on powered off Vms</li>
+</ul>
+</li>
+<li>Can be used on transport nodes and supports both IPV4 and IPv6 protocols including: ICMP, TCP, UDP, DHCP, DNS and ARP/NDP</li>
+<li>Traceflow allows the injection of varying types of packets into application topologies.</li>
+<li>is used to help administrators visualize a topology path</li>
+<li>As this uses Synthetic traffic, it is non distributed and allows an administrator to test the network and security of an application from one VM all the way to another VM.
+<ul>
+<li>It supports the following traffic types:
+<ul>
+<li>Layer 2 unicast</li>
+<li>Layer 3 unicast</li>
+<li>Layer 2 broadcast</li>
+<li>Layer 2 multicast</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>source\destination can be a logical switch port, logical router uplink port, CSP or DHCP port</li>
+<li>destination can be any device in the NSX overlay or in the underlay. However, you cannot select a destination that is north of an NSX Edge node.</li>
+</ul>
+<h1 id="nsx-t-federation">NSX-T Federation</h1>
+<ul>
+<li>NSX-T stretched networking across multiple sites via Federation
+<ul>
+<li>NSX-T 3.0 &ndash;&gt; 3 sites</li>
+<li>NSX-T 3.1 &ndash;&gt; 4 sites</li>
+</ul>
+</li>
+<li>Different Naming
+<ul>
+<li>old NSX-T Manger &ndash;&gt; became Local Manager</li>
+<li>new NSX-T Manager &ndash;&gt; Global Manager
+<ul>
+<li>centralized console for Federation services</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Not supported
+<ul>
+<li>ID-FW, L7-FW, and IDS</li>
+<li>Load balancing</li>
+<li>VPN</li>
+<li>L2-bridge</li>
+<li>Service insertion/guest introspection</li>
+<li>VRF Lite</li>
+</ul>
+</li>
+</ul>
+
+		</section>
+
+		<div class="post-tags">
+			
+			
+			<nav class="nav tags">
+				<ul class="tags">
+					
+					<li><a href="/tags/nsx-t">NSX-T</a></li>
+					
+				</ul>
+			</nav>
+			
+			
+		</div>
+	</article>
+</main>
+<footer>
+<hr>
+<a class="soc"><img src="https://visitor-badge.glitch.me/badge?page_id=https%3a%2f%2fwww.altf4.space%2fposts%2f14%2f" style="margin-left:0;margin-right:0;"/></a><a class="soc" href="mailto://f.racano8@live.com" title="Mail"><i data-feather="mail"></i></a>|<a class="soc" href="https://www.linkedin.com/in/francescoracano/" title="Linkedin"><i data-feather="linkedin"></i></a>|</footer>
+
+
+<script>
+      feather.replace()
+</script></div>
+    </body>
+</html>
