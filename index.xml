@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>ALT_F4</title>
+    <title>alt_f4</title>
     <link>https://www.altf4.space/</link>
-    <description>Recent content on ALT_F4</description>
+    <description>Recent content on alt_f4</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 01 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://www.altf4.space/index.xml" rel="self" type="application/rss+xml" />
@@ -125,21 +125,12 @@
     </item>
     
     <item>
-      <title>About </title>
+      <title>About</title>
       <link>https://www.altf4.space/about/</link>
       <pubDate>Sat, 12 Feb 2022 00:00:00 +0000</pubDate>
       
       <guid>https://www.altf4.space/about/</guid>
-      <description>Francesco Racano  Telecommunication Engineer  7+ years expertise in NFV, Networking and DVB Advanced Consultant @ Capgemini Engineering   Technology Geek Trekking Lover Sport Enthusiast  Achievements and Certificates  Red Hat Certified Specialist in Containers and Kubernetes VMware Certified Professional – Network Virtualization 2022 (VCP-NV) AWS Certified Cloud Practitioner VMware Certified Professional - Data Center Virtualization 2021 (VCP-DCV) UBIqube - Essential and Advanced Developer Certification Autopsy - Digital Forensics Certification Cisco CCNA Master’s Degree - Telecommunication Engineering - Politecnico di Bari Degree - Telecommunication Engineering - Politecnico di Bari  </description>
-    </item>
-    
-    <item>
-      <title>Books</title>
-      <link>https://www.altf4.space/books/</link>
-      <pubDate>Sat, 12 Feb 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://www.altf4.space/books/</guid>
-      <description>   aaa aaa  </description>
+      <description>Francesco Racano  Telecommunication Engineer  7+ years expertise in NFV, Networking and DVB Advanced Consultant @ Capgemini Engineering   Technology Geek Trekking Lover Sport Enthusiast  Achievements and Certificates  Red Hat Certified Specialist in OpenShift Administration (4.6) Red Hat Certified Specialist in Containers and Kubernetes VMware Certified Professional – Network Virtualization 2022 (VCP-NV) AWS Certified Cloud Practitioner VMware Certified Professional - Data Center Virtualization 2021 (VCP-DCV) UBIqube - Essential and Advanced Developer Certification Autopsy - Digital Forensics Certification Cisco CCNA Master’s Degree - Telecommunication Engineering - Politecnico di Bari Degree - Telecommunication Engineering - Politecnico di Bari  </description>
     </item>
     
     <item>
