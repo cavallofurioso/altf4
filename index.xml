@@ -6,7 +6,19 @@
     <description>Recent content on alt_f4</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 01 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://www.altf4.space/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 24 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://www.altf4.space/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>i3wm - How to change wallpaper</title>
+      <link>https://www.altf4.space/posts/15/</link>
+      <pubDate>Fri, 24 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.altf4.space/posts/15/</guid>
+      <description>If you&amp;rsquo;re using i3wm as your favourite window tiling manager, you have noticed that wallpaper channot be changed in an easy ways - like double clicky on the desktop.
+This just bacuse you cannot clicky on Desktop and also there is no menu to do that.
+So&amp;hellip; how to solve this tremenouds lack?
+A terminal file manager called Ranger could help use, with a custom script and a image viewer.</description>
+    </item>
+    
     <item>
       <title>VCP-NV 2022 Study Guide - Ep.6 - NSX-T</title>
       <link>https://www.altf4.space/posts/14/</link>
